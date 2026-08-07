@@ -215,6 +215,50 @@
                         <option value="3.500 Robux - 500.000 VNĐ">3.500 Robux - 500.000 VNĐ</option>
                     </select>
                 </div>
+<!-- CHỌN PHƯƠNG THỨC THANH TOÁN & THẺ CÀO -->
+<div class="form-group">
+    <label for="paymentMethod">Phương thức thanh toán:</label>
+    <select id="paymentMethod" onchange="togglePaymentFields()">
+        <option value="qr">Chuyển khoản / Quét mã QR</option>
+        <option value="card">Thẻ cào điện thoại</option>
+    </select>
+</div>
+
+<div id="cardFields" style="display: none; background: #1f293d; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+    <div class="form-group">
+        <label for="cardType">Loại thẻ:</label>
+        <select id="cardType">
+            <option value="Viettel">Viettel</option>
+            <option value="Vinaphone">Vinaphone</option>
+            <option value="Mobifone">Mobifone</option>
+            <option value="Zing">Zing</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="cardPin">Mã thẻ (PIN):</label>
+        <input type="text" id="cardPin" placeholder="Nhập mã thẻ cào...">
+    </div>
+    <div class="form-group">
+        <label for="cardSeri">Mã Seri thẻ:</label>
+        <input type="text" id="cardSeri" placeholder="Nhập số seri...">
+    </div>
+</div>
+
+<script>
+function togglePaymentFields() {
+    var method = document.getElementById("paymentMethod").value;
+    var cardBox = document.getElementById("cardFields");
+    var qrBox = document.querySelector(".payment-info");
+    
+    if (method === "card") {
+        cardBox.style.display = "block";
+        if (qrBox) qrBox.style.display = "none";
+    } else {
+        cardBox.style.display = "none";
+        if (qrBox) qrBox.style.display = "block";
+    }
+}
+</script>
 
                 <!-- THÔNG TIN THANH TOÁN -->
                 <div class="payment-info">
