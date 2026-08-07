@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Robux TTV - Bán Robux Giá Rẻ, Uy Tín</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0d0f17;
+            color: #ffffff;
+            padding-bottom: 50px;
+        }
+        header {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 198, 255, 0.3);
+        }
+        header h1 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        header p {
+            font-size: 1rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #00c6ff;
+            text-transform: uppercase;
+        }
+        /* Grid Bảng Giá Robux */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: #1a1d28;
+            border: 2px solid #2a2e3d;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00c6ff;
+            box-shadow: 0 8px 20px rgba(0, 198, 255, 0.2);
+        }
+        .card img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+        .card .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+        .btn-buy {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .btn-buy:hover {
+            opacity: 0.9;
+        }
+        /* Khu Vực Thanh Toán & Đặt Đơn */
+        .order-section {
+            background: #1a1d28;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #2a2e3d;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #2a2e3d;
+            background: #0d0f17;
+            color: white;
+            font-size: 1rem;
+        }
+        .payment-info {
+            background: #252936;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .payment-info h4 {
+            color: #00c6ff;
+            margin-bottom: 10px;
+        }
+        .qr-placeholder {
+            background: #fff;
+            color: #000;
+            padding: 15px;
+            display: inline-block;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Shop Robux TTV</h1>
+        <p>Hệ Thống Bán Robux Uy Tín - Tốc Độ - Giá Rẻ Nhất Thị Trường</p>
+    </header>
+
+    <div class="container">
+        <!-- BẢNG GIÁ ROBUX -->
+        <h2 class="section-title">Chọn Gói Robux</h2>
+        <div class="price-grid">
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Robux_2019_Logo.svg" alt="Robux">
+                <h3>100 Robux</h3>
+                <div class="price">20.000 VNĐ</div>
+                <button class="btn-buy" onclick="selectPackage('100 Robux - 20.000 VNĐ')">Mua Ngay</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Robux_2019_Logo.svg" alt="Robux">
+                <h3>280 Robux</h3>
+                <div class="price">50.000 VNĐ</div>
+                <button class="btn-buy" onclick="selectPackage('280 Robux - 50.000 VNĐ')">Mua Ngay</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Robux_2019_Logo.svg" alt="Robux">
+                <h3>600 Robux</h3>
+                <div class="price">100.000 VNĐ</div>
+                <button class="btn-buy" onclick="selectPackage('600 Robux - 100.000 VNĐ')">Mua Ngay</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Robux_2019_Logo.svg" alt="Robux">
+                <h3>1.300 Robux</h3>
+                <div class="price">200.000 VNĐ</div>
+                <button class="btn-buy" onclick="selectPackage('1.300 Robux - 200.000 VNĐ')">Mua Ngay</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Robux_2019_Logo.svg" alt="Robux">
+                <h3>3.500 Robux</h3>
+                <div class="price">500.000 VNĐ</div>
+                <button class="btn-buy" onclick="selectPackage('3.500 Robux - 500.000 VNĐ')">Mua Ngay</button>
+            </div>
+        </div>
+
+        <!-- FORM ĐẶT HÀNG -->
+        <h2 class="section-title" id="orderForm">Thông Tin Đặt Hàng</h2>
+        <div class="order-section">
+            <form id="robuxForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="username">Tên Tài Khoản Roblox (Username):</label>
+                    <input type="text" id="username" placeholder="Nhập chính xác tên Roblox của bạn" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gamepass">Link Gamepass / VIP Server:</label>
+                    <input type="url" id="gamepass" placeholder="Dán đường link Gamepass của bạn vào đây" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="packageSelect">Gói Robux Đã Chọn:</label>
+                    <select id="packageSelect" required>
+                        <option value="">-- Chọn gói Robux --</option>
+                        <option value="100 Robux - 20.000 VNĐ">100 Robux - 20.000 VNĐ</option>
+                        <option value="280 Robux - 50.000 VNĐ">280 Robux - 50.000 VNĐ</option>
+                        <option value="600 Robux - 100.000 VNĐ">600 Robux - 100.000 VNĐ</option>
+                        <option value="1.300 Robux - 200.000 VNĐ">1.300 Robux - 200.000 VNĐ</option>
+                        <option value="3.500 Robux - 500.000 VNĐ">3.500 Robux - 500.000 VNĐ</option>
+                    </select>
+                </div>
+
+                <!-- THÔNG TIN THANH TOÁN -->
+                <div class="payment-info">
+                    <h4>Hướng Dẫn Thanh Toán Quét Mã QR</h4>
+                    <p>Chuyển khoản theo thông tin ngân hàng bên dưới với nội dung: <b>[Tên Roblox của bạn]</b></p>
+                    <div class="qr-placeholder">
+                        <p><b>Ngân hàng:</b> MB Bank / Vietcombank</p>
+                        <p><b>Số tài khoản:</b> 0987654321 (Thay STK của bạn vào đây)</p>
+                        <p><b>Chủ tài khoản:</b> SHOP ROBUX TTV</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="btn-buy" style="padding: 15px; font-size: 1.1rem;">Xác Nhận Đã Chuyển Tiền & Đặt Hàng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Shop Robux TTV. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script>
+        // Tự động chọn gói khi ấn nút Mua Ngay
+        function selectPackage(packageName) {
+            document.getElementById('packageSelect').value = packageName;
+            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Xử lý gửi đơn hàng
+        function submitOrder(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const selectedPackage = document.getElementById('packageSelect').value;
+
+            alert('Cảm ơn ' + username + '!\nĐơn hàng ' + selectedPackage + ' của bạn đã được tiếp nhận.\nHệ thống sẽ kiểm tra giao dịch và chuyển Robux trong vòng 5-15 phút!');
+            
+            // Xóa thông tin form sau khi đặt
+            document.getElementById('robuxForm').reset();
+        }
+    </script>
+</body>
+</html>
