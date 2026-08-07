@@ -121,17 +121,6 @@
             color: white;
             font-size: 1rem;
         }
-        .payment-info {
-            background: #252936;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        .payment-info h4 {
-            color: #00c6ff;
-            margin-bottom: 10px;
-        }
         footer {
             text-align: center;
             margin-top: 40px;
@@ -208,8 +197,8 @@
                 <div class="form-group">
                     <label for="paymentMethod">Phương thức thanh toán:</label>
                     <select id="paymentMethod" onchange="togglePaymentFields()">
-                        <option value="qr">Chuyển khoản / Quét mã QR</option>
                         <option value="card" selected>Thẻ cào điện thoại</option>
+                        <option value="qr">Chuyển khoản / Quét mã QR</option>
                     </select>
                 </div>
 
@@ -254,11 +243,8 @@ function selectPackage(packageName) {
 function togglePaymentFields() {
     var method = document.getElementById("paymentMethod").value;
     var cardBox = document.getElementById("cardFields");
-    
-    if (method === "card") {
-        if (cardBox) cardBox.style.display = "block";
-    } else {
-        if (cardBox) cardBox.style.display = "none";
+    if (cardBox) {
+        cardBox.style.display = (method === "card") ? "block" : "none";
     }
 }
 
@@ -307,11 +293,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => {
-            alert('Lỗi kết nối!');
+            alert('Lỗi kết nối mạng!');
         });
     });
 });
 </script>
 </body>
 </html>
-
