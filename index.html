@@ -307,12 +307,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 parse_mode: 'HTML'
             })
         })
-        .then(response => {
-            alert('Đặt hàng thành công!');
-            form.reset();
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                alert('Đặt hàng thành công!');
+                form.reset();
+            } else {
+                alert('Lỗi Telegram: ' + data.description);
+            }
         })
         .catch(error => {
-            alert('Lỗi gửi đơn, vui lòng kiểm tra kết nối!');
+            alert('Lỗi kết nối!');
         });
     });
 });
