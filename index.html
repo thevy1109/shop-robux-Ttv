@@ -3,1173 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAPKC X5 - Cổng Nạp Kim Cương Free Fire X5 Tự Động Uy Tín</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Orbitron & Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
-    <!-- Canvas Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ffGold: '#FFB800',
-                        ffOrange: '#FF5500',
-                        ffRed: '#E60000',
-                        cyberDark: '#0a0d14',
-                        cyberCard: 'rgba(18, 24, 38, 0.75)',
-                        cyberBorder: 'rgba(255, 184, 0, 0.3)'
-                    },
-                    fontFamily: {
-                        orbitron: ['Orbitron', 'sans-serif'],
-                        sans: ['Inter', 'sans-serif']
-                    },
-                    boxShadow: {
-                        'neon-gold': '0 0 20px rgba(255, 184, 0, 0.5)',
-                        'neon-orange': '0 0 20px rgba(255, 85, 0, 0.6)',
-                        'neon-red': '0 0 25px rgba(230, 0, 0, 0.7)',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Cổng Nạp Robux Chính Thức</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         body {
-            background-color: #06080e;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(255, 85, 0, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(255, 184, 0, 0.1) 0%, transparent 40%),
-                linear-gradient(to bottom, rgba(6, 8, 14, 0.95), rgba(6, 8, 14, 0.98));
-            color: #e2e8f0;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            background-color: #f4f6f9;
+            color: #333;
+            padding: 20px;
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0d14;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ff8c00;
-            border-radius: 4px;
-        }
-
-        /* Glassmorphism Styling */
-        .glass-card {
-            background: rgba(18, 24, 38, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 184, 0, 0.18);
-        }
-
-        .glass-card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card-hover:hover {
-            border-color: rgba(255, 184, 0, 0.6);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px -10px rgba(255, 136, 0, 0.3);
-        }
-
-        /* Glow Animations */
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 15px rgba(255, 184, 0, 0.8)); }
-            50% { opacity: 1; filter: drop-shadow(0 0 25px rgba(255, 85, 0, 1)); }
-        }
-        .glow-active {
-            animation: pulse-glow 2s infinite;
-        }
-
-        /* Ticker text animation */
-        @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        .ticker-wrap {
-            width: 100%;
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             overflow: hidden;
-            white-space: nowrap;
         }
-        .ticker-move {
-            display: inline-block;
-            animation: ticker 25s linear infinite;
+        .header {
+            background: #e50914; /* Tông màu đỏ nổi bật kiểu VNG */
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
-        .ticker-move:hover {
-            animation-play-state: paused;
+        .header h2 {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-
-        /* Toast Popup Floating */
-        @keyframes slideInRight {
-            from { transform: translateX(120%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .content {
+            padding: 20px;
         }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+        .form-group {
+            margin-bottom: 20px;
         }
-        .toast-enter {
-            animation: slideInRight 0.4s ease-out forwards;
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #444;
         }
-        .toast-exit {
-            animation: fadeOut 0.5s ease-in forwards;
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: #e50914;
+        }
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .package-item {
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fafbfc;
+        }
+        .package-item.active {
+            border-color: #e50914;
+            background: #fff5f5;
+        }
+        .package-item .robux-amount {
+            font-weight: bold;
+            font-size: 16px;
+            color: #e50914;
+            margin-bottom: 4px;
+        }
+        .package-item .price {
+            font-size: 13px;
+            color: #666;
+        }
+        .btn-submit {
+            width: 100%;
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-transform: uppercase;
+        }
+        .btn-submit:hover {
+            background: #b80710;
+        }
+        .note {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            line-height: 1.4;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-ffGold selection:text-black">
+<body>
 
-    <!-- TOP ANNOUNCEMENT BANNER -->
-    <div class="bg-gradient-to-r from-ffOrange via-ffGold to-ffRed text-black font-bold text-xs md:text-sm py-1.5 px-4 shadow-lg flex items-center justify-between z-50">
-        <div class="flex items-center space-x-2 overflow-hidden w-full max-w-6xl mx-auto">
-            <span class="bg-black text-ffGold px-2 py-0.5 rounded text-xs font-black uppercase tracking-wider shrink-0 flex items-center gap-1">
-                <i class="fa-solid fa-bolt text-yellow-400 animate-bounce"></i> SỰ KIỆN X5
-            </span>
-            <div class="ticker-wrap text-black font-extrabold text-xs md:text-sm">
-                <div class="ticker-move flex items-center gap-8">
-                    <span>🔥 SIÊU SỰ KIỆN: NẠP KC X5 CHO MỌI MỆNH GIÁ (20K NẠP ĐƯỢC NGAY 1,000 KC)!</span>
-                    <span>💎 TẶNG 1 LƯỢT QUAY VÒNG QUAY VIP KHI NẠP TỪ 20.000 VNĐ!</span>
-                    <span>👑 HỆ THỐNG NẠP TỰ ĐỘNG X5 CỰC NHANH - CÓ KIM CƯƠNG TRONG 30 GIÂY!</span>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <div class="header">
+        <h2>Thanh Toán Nạp Robux</h2>
     </div>
-
-    <!-- MAIN NAVBAR -->
-    <header class="sticky top-0 z-40 bg-cyberDark/90 backdrop-blur-md border-b border-ffGold/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                
-                <!-- Logo & Brand -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-                    <div class="relative w-12 h-12 flex items-center justify-center bg-gradient-to-tr from-ffOrange to-ffGold rounded-xl p-0.5 shadow-neon-gold">
-                        <div class="w-full h-full bg-cyberDark rounded-[10px] flex items-center justify-center">
-                            <i class="fa-solid fa-gem text-2xl text-ffGold glow-active"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-1">
-                            <span class="font-orbitron font-black text-2xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-ffGold via-white to-ffOrange">NẠP KC</span>
-                            <span class="bg-gradient-to-r from-red-600 via-ffOrange to-ffGold text-white text-xs font-black px-2 py-0.5 rounded uppercase tracking-widest shadow shadow-neon-orange animate-pulse">X5 VIP</span>
-                        </div>
-                        <p class="text-[10px] text-gray-400 tracking-widest font-semibold uppercase">Cổng Nạp X5 Kim Cương FF</p>
-                    </div>
-                </div>
-
-                <!-- Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-bold">
-                    <a href="#nap-kc" class="px-3 py-2 text-ffGold hover:text-white transition flex items-center gap-2">
-                        <i class="fa-solid fa-gem text-sm"></i> Nạp KC X5
-                    </a>
-                    <a href="#goi-vip" class="px-3 py-2 text-gray-300 hover:text-ffGold transition flex items-center gap-2">
-                        <i class="fa-solid fa-crown text-yellow-500"></i> Gói Ưu Đãi VIP
-                    </a>
-                    <a href="#vong-quay" class="px-3 py-2 text-gray-300 hover:text-ffGold transition flex items-center gap-2">
-                        <i class="fa-solid fa-spinner text-ffOrange animate-spin-slow"></i> Vòng Quay
-                    </a>
-                    <a href="#lich-su" class="px-3 py-2 text-gray-300 hover:text-ffGold transition flex items-center gap-2">
-                        <i class="fa-solid fa-clock-rotate-left"></i> Lịch Sử
-                    </a>
-                    <a href="#faq" class="px-3 py-2 text-gray-300 hover:text-ffGold transition flex items-center gap-2">
-                        <i class="fa-solid fa-circle-question"></i> Hỗ Trợ
-                    </a>
-                </nav>
-
-                <!-- Search ID / Quick Check -->
-                <div class="hidden lg:flex items-center space-x-3">
-                    <div class="relative">
-                        <input type="text" id="quick-check-id" placeholder="Nhập ID FF kiểm tra..." 
-                            class="bg-black/60 border border-ffGold/30 rounded-xl px-3 py-1.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-ffGold w-44 transition">
-                        <button onclick="checkFFID('quick-check-id')" class="absolute right-1 top-1/2 -translate-y-1/2 bg-ffOrange hover:bg-ffGold text-black font-bold text-xs px-2.5 py-1 rounded-lg transition">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
+    <div class="content">
+        <form id="topupForm">
+            <!-- Nhập thông tin tài khoản -->
+            <div class="form-group">
+                <label for="username">Tài khoản Roblox (Username)</label>
+                <input type="text" id="username" class="form-control" placeholder="Nhập tên tài khoản của bạn..." required>
             </div>
-        </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cyberDark/95 border-b border-ffGold/30 px-4 pt-2 pb-4 space-y-2 text-sm font-bold">
-            <a href="#nap-kc" class="block py-2 text-ffGold"><i class="fa-solid fa-gem mr-2"></i>Nạp KC X5</a>
-            <a href="#goi-vip" class="block py-2 text-gray-300 hover:text-ffGold"><i class="fa-solid fa-crown text-yellow-500 mr-2"></i>Gói Ưu Đãi VIP</a>
-            <a href="#vong-quay" class="block py-2 text-gray-300 hover:text-ffGold"><i class="fa-solid fa-spinner mr-2"></i>Vòng Quay May Mắn</a>
-            <a href="#lich-su" class="block py-2 text-gray-300 hover:text-ffGold"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Lịch Sử Giao Dịch</a>
-            <a href="#faq" class="block py-2 text-gray-300 hover:text-ffGold"><i class="fa-solid fa-circle-question mr-2"></i>Hướng Dẫn & FAQ</a>
-        </div>
-    </header>
-
-    <!-- HERO SECTION / BANNER CAROUSEL -->
-    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
-        <div class="relative rounded-3xl overflow-hidden glass-card border border-ffGold/30 p-6 md:p-10 bg-gradient-to-r from-black/80 via-cyberDark/90 to-ffOrange/20 shadow-2xl">
-            <!-- Background Glow Effects -->
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-ffOrange/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-ffGold/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-                <div class="lg:col-span-7 space-y-4">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-ffOrange/20 to-ffGold/20 border border-ffGold/40 text-ffGold text-xs font-bold uppercase tracking-widest">
-                        <i class="fa-solid fa-fire text-ffOrange animate-pulse"></i> KHUYẾN MÃI ĐẶC BIỆT NẠP KC X5
-                    </div>
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-orbitron font-black text-white leading-tight uppercase">
-                        NẠP KIM CƯƠNG <span class="text-transparent bg-clip-text bg-gradient-to-r from-ffGold via-amber-300 to-ffOrange">X5 KHUYẾN MÃI</span>
-                    </h1>
-                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                        Hệ thống tự động x5 số lượng Kim Cương nạp qua <span class="text-ffGold font-bold">ID Nhân Vật</span>. Chỉ 20k nhận ngay <span class="text-emerald-400 font-bold">1,000 KC</span>! Nhận KC trong <span class="text-emerald-400 font-bold">30 giây</span>.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#nap-kc" class="bg-gradient-to-r from-ffOrange via-ffGold to-amber-500 hover:from-amber-500 hover:to-ffOrange text-black font-orbitron font-black text-sm px-6 py-3.5 rounded-xl shadow-neon-orange transition transform hover:scale-105 flex items-center gap-2">
-                            <i class="fa-solid fa-bolt text-lg"></i> NẠP KC X5 NGAY
-                        </a>
-                        <a href="#vong-quay" class="bg-black/60 hover:bg-black border border-ffGold/40 text-ffGold font-orbitron font-bold text-sm px-6 py-3.5 rounded-xl transition flex items-center gap-2 hover:border-ffGold">
-                            <i class="fa-solid fa-dharmachakra"></i> THỬ VÒNG QUAY VIP
-                        </a>
-                    </div>
-
-                    <!-- Trust Metrics -->
-                    <div class="grid grid-cols-3 gap-2 pt-4 border-t border-gray-800">
-                        <div>
-                            <div class="text-ffGold font-orbitron font-black text-lg sm:text-xl">1.8M+</div>
-                            <div class="text-gray-400 text-xs">Giao Dịch X5</div>
-                        </div>
-                        <div>
-                            <div class="text-emerald-400 font-orbitron font-black text-lg sm:text-xl">30s</div>
-                            <div class="text-gray-400 text-xs">Xử Lý Tự Động</div>
-                        </div>
-                        <div>
-                            <div class="text-ffOrange font-orbitron font-black text-lg sm:text-xl">100%</div>
-                            <div class="text-gray-400 text-xs">KC Sạch An Toàn</div>
-                        </div>
-                    </div>
+            <!-- Chọn gói nạp -->
+            <label>Chọn gói nạp</label>
+            <div class="package-grid" style="margin-top: 8px;">
+                <div class="package-item active" onclick="selectPackage(this, '400', '50.000đ')">
+                    <div class="robux-amount">400 Robux</div>
+                    <div class="price">50.000đ</div>
                 </div>
-
-                <!-- Banner Image / Interactive Spotlight -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="relative w-full max-w-sm">
-                        <!-- Decorative Frame -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-ffOrange to-ffGold rounded-2xl transform rotate-3 scale-105 opacity-50 blur-lg"></div>
-                        <div class="relative glass-card rounded-2xl p-4 border border-ffGold/40 text-center">
-                            <div class="relative rounded-xl overflow-hidden mb-3 group">
-                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Free Fire Banner" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                                <span class="absolute top-2 right-2 bg-red-600 text-white font-black text-[10px] px-2 py-1 rounded uppercase tracking-wider animate-pulse">
-                                    X5 KIM CƯƠNG
-                                </span>
-                                <div class="absolute bottom-2 left-2 right-2 text-left">
-                                    <span class="text-ffGold text-xs font-bold block">SỰ KIỆN ƯU ĐÃI NẠP KC X5</span>
-                                    <span class="text-white text-sm font-black font-orbitron">BẢO HIỂM NẠP ID 100%</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-gray-300 font-medium">Nhập ID game bên dưới để nhận ngay Kim Cương X5!</p>
-                        </div>
-                    </div>
+                <div class="package-item" onclick="selectPackage(this, '800', '100.000đ')">
+                    <div class="robux-amount">800 Robux</div>
+                    <div class="price">100.000đ</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE TOP-UP SECTION -->
-    <section id="nap-kc" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="text-center mb-8">
-            <h2 class="text-2xl sm:text-3xl font-orbitron font-black text-white uppercase tracking-wider">
-                FORM NẠP <span class="text-ffGold">KIM CƯƠNG X5</span> CHÍNH THỨC
-            </h2>
-            <div class="h-1 w-24 bg-gradient-to-r from-ffOrange to-ffGold mx-auto mt-2 rounded-full"></div>
-            <p class="text-gray-400 text-xs sm:text-sm mt-2">Vui lòng kiểm tra kỹ ID Nhân Vật trước khi bấm xác nhận nạp</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- LEFT SIDE: MAIN TOP-UP FORM -->
-            <div class="lg:col-span-8 glass-card rounded-3xl p-6 sm:p-8 border border-ffGold/30 relative shadow-2xl">
-                
-                <!-- ID CHECKING STEP -->
-                <div class="mb-8">
-                    <label class="block text-sm font-bold text-gray-200 mb-2 flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-full bg-ffGold text-black text-xs font-black flex items-center justify-center">1</span>
-                        NHẬP ID NHÂN VẬT FREE FIRE
-                    </label>
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <div class="relative flex-1">
-                            <input type="text" id="ff-id-input" placeholder="Ví dụ: 1849204859" 
-                                class="w-full bg-black/70 border-2 border-ffGold/40 rounded-xl px-4 py-3 text-white font-mono placeholder-gray-500 focus:outline-none focus:border-ffGold transition">
-                        </div>
-                        <button onclick="checkFFID('ff-id-input')" class="bg-gradient-to-r from-ffOrange to-ffGold hover:opacity-90 text-black font-orbitron font-bold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-md">
-                            <i class="fa-solid fa-user-check"></i> KIỂM TRA ID
-                        </button>
-                    </div>
-
-                    <!-- ID Check Result Alert Box -->
-                    <div id="id-result-box" class="hidden mt-3 p-3 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 text-xs sm:text-sm flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-xl text-emerald-400"></i>
-                            <div>
-                                <p class="font-bold text-white">ID Hợp Lệ: <span id="res-id-num" class="text-ffGold font-mono">--</span></p>
-                                <p class="text-xs">Tên nhân vật: <span id="res-id-name" class="font-bold text-emerald-300">--</span> | Server: Vietnam</p>
-                            </div>
-                        </div>
-                        <span class="bg-emerald-500/20 text-emerald-400 font-bold text-[10px] px-2 py-1 rounded">XÁC NHẬN</span>
-                    </div>
+                <div class="package-item" onclick="selectPackage(this, '1700', '200.000đ')">
+                    <div class="robux-amount">1,700 Robux</div>
+                    <div class="price">200.000đ</div>
                 </div>
-
-                <!-- PAYMENT METHOD TABS -->
-                <div class="mb-8">
-                    <label class="block text-sm font-bold text-gray-200 mb-2 flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-full bg-ffGold text-black text-xs font-black flex items-center justify-center">2</span>
-                        CHỌN PHƯƠNG THỨC THANH TOÁN
-                    </label>
-                    
-                    <div class="grid grid-cols-2 gap-3 p-1 bg-black/60 rounded-xl border border-gray-800">
-                        <button id="tab-btn-card" onclick="switchTab('card')" class="py-3 px-4 rounded-lg font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 bg-gradient-to-r from-ffOrange to-ffGold text-black shadow-lg">
-                            <i class="fa-solid fa-credit-card"></i> NẠP THẺ CÀO (Giao Dịch Nhanh)
-                        </button>
-                        <button id="tab-btn-qr" onclick="switchTab('qr')" class="py-3 px-4 rounded-lg font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 text-gray-400 hover:text-white">
-                            <i class="fa-solid fa-qrcode"></i> CHUYỂN KHOẢN QR / MOMO
-                        </button>
-                    </div>
-                </div>
-
-                <!-- TAB CONTENT 1: CARD TOPUP -->
-                <div id="tab-content-card" class="space-y-6">
-                    
-                    <!-- Select Telecom Carrier -->
-                    <div>
-                        <span class="text-xs text-gray-400 font-semibold mb-2 block">A. Chọn nhà mạng / Loại thẻ:</span>
-                        <div class="grid grid-cols-3 sm:grid-cols-5 gap-3" id="carrier-selector">
-                            <div onclick="selectCarrier(this, 'VIETTEL')" class="carrier-card active border-2 border-ffGold bg-ffGold/10 rounded-xl p-3 text-center cursor-pointer transition transform hover:-translate-y-1">
-                                <span class="font-black text-sm text-red-500 block">VIETTEL</span>
-                                <span class="text-[10px] text-gray-400">Tự động X5</span>
-                            </div>
-                            <div onclick="selectCarrier(this, 'VINAPHONE')" class="carrier-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 text-center cursor-pointer transition transform hover:-translate-y-1">
-                                <span class="font-black text-sm text-blue-400 block">VINA</span>
-                                <span class="text-[10px] text-gray-400">Tự động X5</span>
-                            </div>
-                            <div onclick="selectCarrier(this, 'MOBIFONE')" class="carrier-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 text-center cursor-pointer transition transform hover:-translate-y-1">
-                                <span class="font-black text-sm text-blue-600 block">MOBI</span>
-                                <span class="text-[10px] text-gray-400">Tự động X5</span>
-                            </div>
-                            <div onclick="selectCarrier(this, 'ZING')" class="carrier-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 text-center cursor-pointer transition transform hover:-translate-y-1">
-                                <span class="font-black text-sm text-cyan-400 block">ZING</span>
-                                <span class="text-[10px] text-gray-400">Tự động X5</span>
-                            </div>
-                            <div onclick="selectCarrier(this, 'GATE')" class="carrier-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 text-center cursor-pointer transition transform hover:-translate-y-1">
-                                <span class="font-black text-sm text-amber-500 block">GATE</span>
-                                <span class="text-[10px] text-gray-400">Tự động X5</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Select Price Denomination -->
-                    <div>
-                        <span class="text-xs text-gray-400 font-semibold mb-2 block">B. Chọn mệnh giá nạp (Bảng Giá X5 KC Mới Nhất):</span>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="denom-selector">
-                            <div onclick="selectDenom(this, 20000, 1000)" class="denom-card active border-2 border-ffGold bg-ffGold/10 rounded-xl p-3 cursor-pointer transition relative hover:border-ffGold">
-                                <div class="text-xs text-gray-400">20.000 VNĐ</div>
-                                <div class="text-ffGold font-orbitron font-black text-lg">1.000 KC</div>
-                                <span class="text-[10px] bg-red-600 text-white font-bold px-1.5 py-0.5 rounded absolute top-2 right-2">NẠP X5</span>
-                            </div>
-                            <div onclick="selectDenom(this, 50000, 4500)" class="denom-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 cursor-pointer transition relative hover:border-ffGold">
-                                <div class="text-xs text-gray-400">50.000 VNĐ</div>
-                                <div class="text-ffGold font-orbitron font-black text-lg">4.500 KC</div>
-                                <span class="text-[10px] bg-red-600 text-white font-bold px-1.5 py-0.5 rounded absolute top-2 right-2">NẠP X5</span>
-                            </div>
-                            <div onclick="selectDenom(this, 100000, 10000)" class="denom-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 cursor-pointer transition relative hover:border-ffGold">
-                                <div class="text-xs text-gray-400">100.000 VNĐ</div>
-                                <div class="text-ffGold font-orbitron font-black text-lg">10.000 KC</div>
-                                <span class="text-[10px] bg-red-600 text-white font-bold px-1.5 py-0.5 rounded absolute top-2 right-2">HOT NẠP X5</span>
-                            </div>
-                            <div onclick="selectDenom(this, 200000, 20000)" class="denom-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 cursor-pointer transition relative hover:border-ffGold">
-                                <div class="text-xs text-gray-400">200.000 VNĐ</div>
-                                <div class="text-ffGold font-orbitron font-black text-lg">20.000 KC</div>
-                                <span class="text-[10px] bg-red-600 text-white font-bold px-1.5 py-0.5 rounded absolute top-2 right-2">NẠP X5</span>
-                            </div>
-                            <div onclick="selectDenom(this, 500000, 40000)" class="denom-card border-2 border-gray-800 bg-black/40 rounded-xl p-3 cursor-pointer transition relative hover:border-ffGold">
-                                <div class="text-xs text-gray-400">500.000 VNĐ</div>
-                                <div class="text-ffGold font-orbitron font-black text-lg">40.000 KC</div>
-                                <span class="text-[10px] bg-red-600 text-white font-bold px-1.5 py-0.5 rounded absolute top-2 right-2">VIP X5 KC</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Input PIN & SERI -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs text-gray-300 font-bold mb-1">Mã Thẻ (PIN)</label>
-                            <input type="text" id="card-pin" placeholder="Nhập mã số sau lớp cào..." 
-                                class="w-full bg-black/70 border border-gray-700 rounded-xl px-4 py-2.5 text-white font-mono text-sm focus:outline-none focus:border-ffGold">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-gray-300 font-bold mb-1">Số Serial (SERI)</label>
-                            <input type="text" id="card-seri" placeholder="Nhập số seri trên thẻ..." 
-                                class="w-full bg-black/70 border border-gray-700 rounded-xl px-4 py-2.5 text-white font-mono text-sm focus:outline-none focus:border-ffGold">
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button onclick="processCardTopup()" class="w-full py-4 bg-gradient-to-r from-ffOrange via-ffGold to-amber-500 hover:opacity-95 text-black font-orbitron font-black text-base rounded-xl shadow-neon-orange transition transform active:scale-95 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-bolt text-lg"></i> XÁC NHẬN NẠP THẺ X5 NGAY
-                    </button>
-                </div>
-
-                <!-- TAB CONTENT 2: QR / BANKING TOPUP -->
-                <div id="tab-content-qr" class="hidden space-y-6">
-                    <div class="p-4 rounded-2xl bg-black/60 border border-ffGold/30 text-center">
-                        <p class="text-xs text-gray-300 mb-3">Quét mã QR bằng App Ngân Hàng hoặc Ví MoMo để nhận ưu đãi X5 Kim Cương tự động</p>
-                        
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 my-4">
-                            <!-- QR Preview Box -->
-                            <div class="bg-white p-3 rounded-2xl shadow-xl border-4 border-ffGold w-48 h-48 flex items-center justify-center relative group">
-                                <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=NAPKCX5_ID_100000" alt="QR Code Topup" class="w-full h-full object-contain">
-                                <div class="absolute inset-0 bg-black/80 rounded-xl flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition p-2 text-center text-xs">
-                                    <i class="fa-solid fa-qrcode text-2xl text-ffGold mb-1"></i>
-                                    Tự động nhận diện cú pháp & số tiền
-                                </div>
-                            </div>
-
-                            <!-- Transfer Info -->
-                            <div class="text-left space-y-2 text-xs sm:text-sm bg-cyberDark p-4 rounded-xl border border-gray-800 w-full sm:w-auto">
-                                <div class="flex justify-between gap-6">
-                                    <span class="text-gray-400">Ngân Hàng:</span>
-                                    <span class="font-bold text-white">MB BANK (Quân Đội)</span>
-                                </div>
-                                <div class="flex justify-between gap-6">
-                                    <span class="text-gray-400">Số Tài Khoản:</span>
-                                    <span class="font-mono font-bold text-ffGold flex items-center gap-1">
-                                        0988888999
-                                        <button onclick="copyText('0988888999')" class="text-gray-400 hover:text-white"><i class="fa-regular fa-copy"></i></button>
-                                    </span>
-                                </div>
-                                <div class="flex justify-between gap-6">
-                                    <span class="text-gray-400">Chủ Tài Khoản:</span>
-                                    <span class="font-bold text-white uppercase">GARENA NAP KC X5</span>
-                                </div>
-                                <div class="flex justify-between gap-6">
-                                    <span class="text-gray-400">Số Tiền:</span>
-                                    <span id="qr-amount-display" class="font-bold text-emerald-400">20.000 VNĐ</span>
-                                </div>
-                                <div class="flex justify-between gap-6 bg-ffGold/10 p-2 rounded border border-ffGold/30">
-                                    <span class="text-gray-300">Nội dung CK:</span>
-                                    <span id="qr-memo-display" class="font-mono font-black text-ffGold">NAPKC X5 1849204859</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="text-xs text-amber-400 flex items-center justify-center gap-1">
-                            <i class="fa-solid fa-triangle-exclamation"></i> Vui lòng giữ nguyên nội dung chuyển khoản để hệ thống tự động cộng KC X5!
-                        </div>
-                    </div>
-
-                    <button onclick="checkQRSuccess()" class="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-orbitron font-black text-base rounded-xl transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-circle-check"></i> TÔI ĐÃ CHUYỂN KHOẢN (XÁC NHẬN)
-                    </button>
+                <div class="package-item" onclick="selectPackage(this, '4500', '500.000đ')">
+                    <div class="robux-amount">4,500 Robux</div>
+                    <div class="price">500.000đ</div>
                 </div>
             </div>
 
-            <!-- RIGHT SIDE: SPECIAL PACKS & FAST STATS -->
-            <div class="lg:col-span-4 space-y-6">
-                
-                <!-- VIP SPECIAL PACKS -->
-                <div id="goi-vip" class="glass-card rounded-3xl p-6 border border-ffGold/30 relative">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="font-orbitron font-black text-lg text-white flex items-center gap-2">
-                            <i class="fa-solid fa-crown text-ffGold"></i> GÓI ƯU ĐÃI VIP
-                        </h3>
-                        <span class="text-[10px] bg-red-600 text-white font-bold px-2 py-0.5 rounded animate-pulse">GIỚI HẠN</span>
-                    </div>
-
-                    <div class="space-y-3">
-                        <!-- Pack Item 1 -->
-                        <div onclick="selectSpecialPack('Thẻ Tuần VIP', 50000)" class="p-3 rounded-2xl bg-black/50 border border-gray-800 hover:border-ffGold cursor-pointer transition flex items-center justify-between group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-600 to-ffGold flex items-center justify-center text-black font-black">
-                                    <i class="fa-solid fa-calendar-week"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-white group-hover:text-ffGold transition">Thẻ Tuần Free Fire</h4>
-                                    <p class="text-[11px] text-gray-400">Nhận 450 KC + Vé quay</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="font-bold text-sm text-ffGold block">50.000đ</span>
-                                <span class="text-[9px] text-emerald-400 font-bold">MUA NGAY</span>
-                            </div>
-                        </div>
-
-                        <!-- Pack Item 2 -->
-                        <div onclick="selectSpecialPack('Thẻ Tháng VIP', 150000)" class="p-3 rounded-2xl bg-black/50 border border-gray-800 hover:border-ffGold cursor-pointer transition flex items-center justify-between group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white font-black">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-white group-hover:text-ffGold transition">Thẻ Tháng Free Fire</h4>
-                                    <p class="text-[11px] text-gray-400">Nhận 2.600 KC siêu lời</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="font-bold text-sm text-ffGold block">150.000đ</span>
-                                <span class="text-[9px] text-emerald-400 font-bold">MUA NGAY</span>
-                            </div>
-                        </div>
-
-                        <!-- Pack Item 3 -->
-                        <div onclick="selectSpecialPack('Gói Huy Hiệu Cùng Cố', 20000)" class="p-3 rounded-2xl bg-black/50 border border-gray-800 hover:border-ffGold cursor-pointer transition flex items-center justify-between group">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-600 to-ffOrange flex items-center justify-center text-white font-black">
-                                    <i class="fa-solid fa-shield-halved"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-white group-hover:text-ffGold transition">Huy Hiệu Củng Cố</h4>
-                                    <p class="text-[11px] text-gray-400">+100 Badge Mùa Mới</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="font-bold text-sm text-ffGold block">20.000đ</span>
-                                <span class="text-[9px] text-emerald-400 font-bold">MUA NGAY</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAST RECENT WINNERS FEED -->
-                <div class="glass-card rounded-3xl p-6 border border-ffGold/20">
-                    <h3 class="font-orbitron font-bold text-sm text-gray-300 mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-bolt text-yellow-400"></i> NẠP X5 THÀNH CÔNG GẦN ĐÂY
-                    </h3>
-                    <div id="live-feed-list" class="space-y-2.5 max-h-56 overflow-hidden text-xs">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- LUCKY WHEEL / MINIGAME SECTION -->
-    <section id="vong-quay" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div class="glass-card rounded-3xl p-6 sm:p-10 border border-ffGold/40 relative overflow-hidden bg-gradient-to-b from-cyberDark via-black/80 to-cyberDark shadow-2xl">
-            
-            <div class="text-center mb-8">
-                <span class="bg-gradient-to-r from-ffOrange to-ffGold text-black font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-                    MINIGAME TRI ÂN KHÁCH HÀNG NẠP X5
-                </span>
-                <h2 class="text-2xl sm:text-4xl font-orbitron font-black text-white mt-2 uppercase">
-                    VÒNG QUAY <span class="text-ffGold">KIM CƯƠNG VIP</span>
-                </h2>
-                <p class="text-gray-400 text-xs sm:text-sm mt-1">Nạp từ 20k nhận ngay lượt quay may mắn 100% trúng quà!</p>
+            <!-- Phương thức thanh toán -->
+            <div class="form-group">
+                <label for="paymentMethod">Phương thức thanh toán</label>
+                <select id="paymentMethod" class="form-control">
+                    <option value="momo">Ví MoMo</option>
+                    <option value="bank">Chuyển khoản Ngân hàng (QR Code)</option>
+                    <option value="card">Thẻ cào điện thoại (Viettel, Mobifone, Vinaphone)</option>
+                </select>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
-                <!-- WHEEL CANVAS -->
-                <div class="lg:col-span-7 flex flex-col items-center justify-center relative">
-                    <div class="relative w-72 h-72 sm:w-96 sm:h-96">
-                        <!-- Pointer Arrow -->
-                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-30 w-8 h-10 text-red-500 drop-shadow-[0_0_10px_rgba(255,0,0,0.8)]">
-                            <i class="fa-solid fa-location-pin text-4xl transform rotate-180"></i>
-                        </div>
-
-                        <!-- Canvas Wheel -->
-                        <canvas id="wheelCanvas" width="400" height="400" class="w-full h-full rounded-full border-4 border-ffGold shadow-neon-gold"></canvas>
-
-                        <!-- Center Button -->
-                        <button id="spin-btn" onclick="spinWheel()" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-tr from-ffOrange via-ffGold to-yellow-300 rounded-full border-4 border-white shadow-2xl flex flex-col items-center justify-center text-black font-black font-orbitron text-xs sm:text-sm transform active:scale-95 transition">
-                            <span>QUAY</span>
-                            <span class="text-[8px] font-bold">20.000đ</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- WHEEL REWARDS & STATS -->
-                <div class="lg:col-span-5 space-y-4">
-                    <div class="p-4 rounded-2xl bg-black/60 border border-gray-800">
-                        <h4 class="font-orbitron font-bold text-white text-sm mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-gift text-ffGold"></i> DANH SÁCH PHẦN THƯỞNG
-                        </h4>
-                        <ul class="text-xs text-gray-300 space-y-2">
-                            <li class="flex justify-between items-center border-b border-gray-800/80 pb-1">
-                                <span>💎 9.999 Kim Cương (Đặc biệt)</span>
-                                <span class="text-ffGold font-bold">0.5%</span>
-                            </li>
-                            <li class="flex justify-between items-center border-b border-gray-800/80 pb-1">
-                                <span>💎 1.000 Kim Cương</span>
-                                <span class="text-ffGold font-bold">5%</span>
-                            </li>
-                            <li class="flex justify-between items-center border-b border-gray-800/80 pb-1">
-                                <span>💎 500 Kim Cương</span>
-                                <span class="text-ffGold font-bold">15%</span>
-                            </li>
-                            <li class="flex justify-between items-center border-b border-gray-800/80 pb-1">
-                                <span>🎟️ Thẻ Cào 100.000 VNĐ</span>
-                                <span class="text-ffGold font-bold">10%</span>
-                            </li>
-                            <li class="flex justify-between items-center">
-                                <span>💎 100 Kim Cương (An ủi)</span>
-                                <span class="text-ffGold font-bold">70%</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-gradient-to-r from-ffOrange/10 to-ffGold/10 border border-ffGold/30">
-                        <div class="text-xs text-gray-300">Lượt quay của bạn: <span id="user-spins-count" class="font-bold text-ffGold font-orbitron text-base">3</span> lượt</div>
-                        <p class="text-[11px] text-gray-400 mt-1">Mỗi đơn nạp thành công từ 20k sẽ được cộng thêm 1 lượt quay miễn phí.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- TRANSACTION HISTORY SECTION -->
-    <section id="lich-su" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-ffGold/20">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                <div>
-                    <h3 class="font-orbitron font-black text-xl text-white uppercase flex items-center gap-2">
-                        <i class="fa-solid fa-clock-rotate-left text-ffGold"></i> LỊCH SỬ NẠP X5 TRÊN HỆ THỐNG
-                    </h3>
-                    <p class="text-gray-400 text-xs">Cập nhật thời gian thực từ máy chủ Garena</p>
-                </div>
-                <button onclick="refreshHistory()" class="px-4 py-2 bg-black/60 hover:bg-black border border-gray-700 text-gray-300 hover:text-ffGold rounded-xl text-xs font-bold transition flex items-center gap-2">
-                    <i class="fa-solid fa-arrows-rotate"></i> Làm Mới
-                </button>
-            </div>
-
-            <!-- Table Responsive Wrap -->
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs sm:text-sm">
-                    <thead>
-                        <tr class="bg-black/60 text-gray-400 font-orbitron uppercase text-[11px] border-b border-gray-800">
-                            <th class="p-3">Thời Gian</th>
-                            <th class="p-3">ID Nhân Vật</th>
-                            <th class="p-3">Loại Thẻ/PTTT</th>
-                            <th class="p-3">Mệnh Giá</th>
-                            <th class="p-3">Nhận Được (X5)</th>
-                            <th class="p-3 text-right">Trạng Thái</th>
-                        </tr>
-                    </thead>
-                    <tbody id="history-table-body" class="divide-y divide-gray-800/60 font-medium">
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ & SUPPORT SECTION -->
-    <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- FAQ Accordion -->
-            <div class="lg:col-span-8 glass-card rounded-3xl p-6 sm:p-8 border border-ffGold/20">
-                <h3 class="font-orbitron font-black text-xl text-white mb-6 uppercase flex items-center gap-2">
-                    <i class="fa-solid fa-circle-question text-ffGold"></i> CÂU HỎI THƯỜNG GẶP (FAQ)
-                </h3>
-
-                <div class="space-y-3" id="faq-accordion">
-                    <!-- FAQ 1 -->
-                    <div class="border border-gray-800 rounded-xl overflow-hidden bg-black/40">
-                        <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-bold text-sm text-gray-200 hover:text-ffGold flex justify-between items-center">
-                            <span>Sự kiện Nạp KC X5 kéo dài trong bao lâu?</span>
-                            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content hidden p-4 text-xs text-gray-400 border-t border-gray-800/60 bg-black/60">
-                            Chương trình ưu đãi Nạp KC X5 đang áp dụng cho mọi tài khoản trong tháng này. Hãy nhanh tay nạp để nhận ngay lượng KC X5 cực lớn!
-                        </div>
-                    </div>
-
-                    <!-- FAQ 2 -->
-                    <div class="border border-gray-800 rounded-xl overflow-hidden bg-black/40">
-                        <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-bold text-sm text-gray-200 hover:text-ffGold flex justify-between items-center">
-                            <span>Nạp Kim Cương X5 mất bao lâu thì nhận được vào game?</span>
-                            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content hidden p-4 text-xs text-gray-400 border-t border-gray-800/60 bg-black/60">
-                            Hệ thống nạp hoàn toàn tự động qua cổng API Garena. Ngay sau khi thẻ cào hoặc đơn chuyển khoản của bạn được xác nhận thành công, Kim Cương sẽ chuyển trực tiếp vào tài khoản game của bạn trong <strong>10 đến 30 giây</strong>.
-                        </div>
-                    </div>
-
-                    <!-- FAQ 3 -->
-                    <div class="border border-gray-800 rounded-xl overflow-hidden bg-black/40">
-                        <button onclick="toggleFAQ(this)" class="w-full p-4 text-left font-bold text-sm text-gray-200 hover:text-ffGold flex justify-between items-center">
-                            <span>Nạp Kim Cương X5 ở đây có bị khóa tài khoản không?</span>
-                            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
-                        </button>
-                        <div class="faq-content hidden p-4 text-xs text-gray-400 border-t border-gray-800/60 bg-black/60">
-                            Cam kết 100% Kim Cương Sạch từ đối tác đại lý chính thức của Garena Vietnam. Tuyệt đối không xài lậu, không refund, an toàn tuyệt đối cho tài khoản Free Fire của bạn.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Customer Support Contacts -->
-            <div class="lg:col-span-4 space-y-4">
-                <div class="glass-card rounded-3xl p-6 border border-ffGold/30 text-center">
-                    <div class="w-16 h-16 mx-auto bg-gradient-to-tr from-ffOrange to-ffGold rounded-2xl flex items-center justify-center text-black text-2xl font-black mb-3 shadow-neon-orange">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
-                    <h4 class="font-orbitron font-bold text-base text-white">HỖ TRỢ KHÁCH HÀNG 24/7</h4>
-                    <p class="text-xs text-gray-400 mt-1">Đội ngũ kỹ thuật viên luôn trực sẵn sàng hỗ trợ bạn bất kỳ lúc nào.</p>
-
-                    <div class="space-y-2.5 mt-6">
-                        <a href="javascript:void(0)" onclick="alertMessage('Đang kết nối Zalo CSKH Nạp KC X5...')" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-comment-dots text-base"></i> CHAT ZALO CSKH
-                        </a>
-                        <a href="javascript:void(0)" onclick="alertMessage('Đang kết nối Fanpage Facebook...')" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-facebook text-base"></i> FANPAGE CHÍNH THỨC
-                        </a>
-                        <a href="javascript:void(0)" onclick="alertMessage('Hotline: 1900 888 999')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-phone text-base"></i> HOTLINE: 1900 888 999
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-cyberDark border-t border-gray-800 mt-12 py-8 text-xs text-gray-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-gem text-ffGold text-lg"></i>
-                <span class="font-orbitron font-bold text-white text-sm">NAP KC X5 VIP</span>
-                <span>- Hệ Thống Nạp Kim Cương X5 Tự Động Uy Tín Hàng Đầu</span>
-            </div>
-            <div>
-                © 2026 Bản quyền thuộc về Web Nap KC X5 VIP. Tất cả dịch vụ đều đáp ứng tiêu chuẩn an toàn.
-            </div>
-        </div>
-    </footer>
-
-    <!-- REALTIME TOAST CONTAINER -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none max-w-xs w-full"></div>
-
-    <!-- GENERAL ALERT MODAL -->
-    <div id="custom-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-        <div class="glass-card max-w-sm w-full rounded-2xl p-6 border border-ffGold text-center space-y-4">
-            <div id="modal-icon" class="text-4xl text-ffGold">
-                <i class="fa-solid fa-circle-info"></i>
-            </div>
-            <h3 id="modal-title" class="font-orbitron font-bold text-lg text-white">THÔNG BÁO</h3>
-            <p id="modal-msg" class="text-xs text-gray-300 leading-relaxed"></p>
-            <button onclick="closeModal()" class="w-full py-2.5 bg-gradient-to-r from-ffOrange to-ffGold text-black font-bold text-xs rounded-xl uppercase">
-                ĐỒNG Ý
-            </button>
-        </div>
+            <button type="submit" class="btn-submit">Xác Nhận Nạp</button>
+            <div class="note">Vui lòng kiểm tra kỹ tên tài khoản trước khi bấm xác nhận để tránh nạp nhầm người chơi khác.</div>
+        </form>
     </div>
+</div>
 
-    <!-- JAVASCRIPT INTERACTIVE LOGIC -->
-    <script>
-        // Global State variables
-        let selectedCarrier = 'VIETTEL';
-        let selectedAmount = 20000;
-        let selectedKC = 1000;
-        let currentTab = 'card';
-        let userSpins = 3;
+<script>
+    // Hàm xử lý chọn gói nạp giao diện
+    function selectPackage(element, robux, price) {
+        const items = document.querySelectorAll('.package-item');
+        items.forEach(item => item.classList.remove('active'));
+        element.classList.add('active');
+    }
 
-        // Fictive Player Names for Simulation
-        const sampleNames = [
-            '◆Sói•Đêm◆', '★Khang•Pro★', '꧁༺Garena༻꧂', '🔥Booyah•King🔥', 
-            '╰‿╯Tùy•Duyên', '✿Tuyết•Băng✿', '⚡Sniper•God⚡', '❖Tuấn•Dragon❖'
-        ];
+    // Xử lý khi bấm nút nạp
+    document.getElementById('topupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        alert(`Đã ghi nhận yêu cầu nạp cho tài khoản: ${username}. Hệ thống đang chuyển hướng thanh toán...`);
+    });
+</script>
 
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Tab Switcher
-        function switchTab(tab) {
-            currentTab = tab;
-            const cardBtn = document.getElementById('tab-btn-card');
-            const qrBtn = document.getElementById('tab-btn-qr');
-            const cardContent = document.getElementById('tab-content-card');
-            const qrContent = document.getElementById('tab-content-qr');
-
-            if (tab === 'card') {
-                cardBtn.className = "py-3 px-4 rounded-lg font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 bg-gradient-to-r from-ffOrange to-ffGold text-black shadow-lg";
-                qrBtn.className = "py-3 px-4 rounded-lg font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 text-gray-400 hover:text-white";
-                cardContent.classList.remove('hidden');
-                qrContent.classList.add('hidden');
-            } else {
-                qrBtn.className = "py-3 px-4 rounded-lg font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 bg-gradient-to-r from-ffOrange to-ffGold text-black shadow-lg";
-                cardBtn.className = "py-3 px-4 rounded-lg font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 text-gray-400 hover:text-white";
-                qrContent.classList.remove('hidden');
-                cardContent.classList.add('hidden');
-                updateQRInfo();
-            }
-        }
-
-        // Telecom Carrier Selector
-        function selectCarrier(element, carrier) {
-            document.querySelectorAll('.carrier-card').forEach(el => {
-                el.classList.remove('active', 'border-ffGold', 'bg-ffGold/10');
-                el.classList.add('border-gray-800', 'bg-black/40');
-            });
-            element.classList.add('active', 'border-ffGold', 'bg-ffGold/10');
-            element.classList.remove('border-gray-800', 'bg-black/40');
-            selectedCarrier = carrier;
-        }
-
-        // Price Denomination Selector
-        function selectDenom(element, amount, kc) {
-            document.querySelectorAll('.denom-card').forEach(el => {
-                el.classList.remove('active', 'border-ffGold', 'bg-ffGold/10');
-                el.classList.add('border-gray-800', 'bg-black/40');
-            });
-            element.classList.add('active', 'border-ffGold', 'bg-ffGold/10');
-            element.classList.remove('border-gray-800', 'bg-black/40');
-            selectedAmount = amount;
-            selectedKC = kc;
-            updateQRInfo();
-        }
-
-        // Quick Select Special Pack
-        function selectSpecialPack(packName, amount) {
-            const idInput = document.getElementById('ff-id-input').value.trim();
-            if(!idInput) {
-                alertMessage("Vui lòng nhập ID Free Fire trước khi chọn mua gói!");
-                document.getElementById('ff-id-input').focus();
-                return;
-            }
-            alertMessage(`Bạn đã chọn mua gói: ${packName} (${amount.toLocaleString()} VNĐ). Vui lòng nhấn xác nhận nạp thẻ hoặc quét mã QR!`);
-            selectedAmount = amount;
-            updateQRInfo();
-            window.location.hash = "nap-kc";
-        }
-
-        // Simulate FF ID Checking
-        function checkFFID(inputId) {
-            const val = document.getElementById(inputId).value.trim();
-            if (!val || val.length < 6 || isNaN(val)) {
-                alertMessage("Vui lòng nhập đúng định dạng ID Free Fire (chuỗi số từ 8-10 ký tự)!");
-                return;
-            }
-            
-            const randomName = sampleNames[Math.floor(Math.random() * sampleNames.length)];
-            document.getElementById('res-id-num').innerText = val;
-            document.getElementById('res-id-name').innerText = randomName;
-            document.getElementById('id-result-box').classList.remove('hidden');
-
-            // Sync with quick check
-            if(inputId === 'quick-check-id') {
-                document.getElementById('ff-id-input').value = val;
-            }
-            updateQRInfo();
-        }
-
-        // Update QR details
-        function updateQRInfo() {
-            const ffId = document.getElementById('ff-id-input').value.trim() || '1849204859';
-            document.getElementById('qr-amount-display').innerText = selectedAmount.toLocaleString() + ' VNĐ';
-            document.getElementById('qr-memo-display').innerText = `NAPKC X5 ${ffId}`;
-            
-            // Generate QR code URL
-            const qrData = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=NAPKCX5_${ffId}_${selectedAmount}`;
-            document.getElementById('qr-image').src = qrData;
-        }
-
-        // Copy Text Helper
-        function copyText(text) {
-            const input = document.createElement('input');
-            input.value = text;
-            document.body.appendChild(input);
-            input.select();
-            document.execCommand('copy');
-            document.body.removeChild(input);
-            alertMessage(`Đã sao chép: ${text}`);
-        }
-
-        // Process Card Topup Submit
-        function processCardTopup() {
-            const ffId = document.getElementById('ff-id-input').value.trim();
-            const pin = document.getElementById('card-pin').value.trim();
-            const seri = document.getElementById('card-seri').value.trim();
-
-            if (!ffId) {
-                alertMessage("Vui lòng nhập ID Nhân Vật trước khi nạp!");
-                return;
-            }
-            if (!pin || pin.length < 8) {
-                alertMessage("Vui lòng nhập chính xác Mã Thẻ (PIN)!");
-                return;
-            }
-            if (!seri || seri.length < 8) {
-                alertMessage("Vui lòng nhập chính xác Số Serial (SERI)!");
-                return;
-            }
-
-            // Simulate Processing
-            alertMessage("Đang gửi thẻ lên hệ thống X5 xử lý... Vui lòng chờ 5 giây!");
-            
-            setTimeout(() => {
-                // Add to History
-                addHistoryItem(ffId, selectedCarrier, selectedAmount, selectedKC.toLocaleString() + " KC", "Thành Công");
-                
-                // Add Spin
-                userSpins++;
-                document.getElementById('user-spins-count').innerText = userSpins;
-
-                // Fire Confetti
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                });
-
-                alertMessage(`NẠP X5 THÀNH CÔNG! Đã cộng ${selectedKC.toLocaleString()} Kim Cương vào ID ${ffId}. Bạn nhận được +1 lượt quay VIP!`);
-                
-                // Reset inputs
-                document.getElementById('card-pin').value = '';
-                document.getElementById('card-seri').value = '';
-            }, 2500);
-        }
-
-        // Check QR Transfer Confirmation
-        function checkQRSuccess() {
-            const ffId = document.getElementById('ff-id-input').value.trim();
-            if(!ffId) {
-                alertMessage("Vui lòng nhập ID nhân vật!");
-                return;
-            }
-            alertMessage("Hệ thống đang kiểm tra giao dịch chuyển khoản X5... Vui lòng chờ vài giây!");
-            setTimeout(() => {
-                addHistoryItem(ffId, "BANK / MOMO", selectedAmount, selectedKC.toLocaleString() + " KC", "Thành Công");
-                confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-                alertMessage(`XÁC NHẬN THÀNH CÔNG! Đã nạp ${selectedKC.toLocaleString()} KC X5 cho tài khoản ID ${ffId}!`);
-            }, 2000);
-        }
-
-        // Alert Modal Helper
-        function alertMessage(msg) {
-            document.getElementById('modal-msg').innerText = msg;
-            document.getElementById('custom-modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('custom-modal').classList.add('hidden');
-        }
-
-        // FAQ Toggle Logic
-        function toggleFAQ(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('i');
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
-
-        // HISTORY TABLE LOGIC
-        const historyData = [
-            { time: '10:42:15', id: '28491****', carrier: 'VIETTEL', amount: '100.000đ', kc: '10.000 KC', status: 'Thành Công' },
-            { time: '10:40:02', id: '99281****', carrier: 'MOMO/QR', amount: '50.000đ', kc: '4.500 KC', status: 'Thành Công' },
-            { time: '10:38:44', id: '10482****', carrier: 'ZING', amount: '200.000đ', kc: '20.000 KC', status: 'Thành Công' },
-            { time: '10:35:10', id: '88392****', carrier: 'VINAPHONE', amount: '20.000đ', kc: '1.000 KC', status: 'Thành Công' }
-        ];
-
-        function renderHistory() {
-            const tbody = document.getElementById('history-table-body');
-            tbody.innerHTML = '';
-            historyData.forEach(item => {
-                tbody.innerHTML += `
-                    <tr class="hover:bg-white/5 transition">
-                        <td class="p-3 text-gray-400 font-mono">${item.time}</td>
-                        <td class="p-3 font-mono text-ffGold font-bold">${item.id}</td>
-                        <td class="p-3 font-bold">${item.carrier}</td>
-                        <td class="p-3">${item.amount}</td>
-                        <td class="p-3 text-emerald-400 font-bold font-orbitron">${item.kc}</td>
-                        <td class="p-3 text-right">
-                            <span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-bold border border-emerald-500/30">
-                                ${item.status}
-                            </span>
-                        </td>
-                    </tr>
-                `;
-            });
-        }
-
-        function addHistoryItem(id, carrier, amount, kc, status) {
-            const now = new Date();
-            const timeStr = now.toTimeString().split(' ')[0];
-            const maskedId = id.length > 5 ? id.substring(0, 4) + '****' : id;
-            historyData.unshift({
-                time: timeStr,
-                id: maskedId,
-                carrier: carrier,
-                amount: amount.toLocaleString() + 'đ',
-                kc: kc,
-                status: status
-            });
-            renderHistory();
-        }
-
-        function refreshHistory() {
-            renderHistory();
-            alertMessage("Lịch sử giao dịch X5 đã được làm mới!");
-        }
-
-        // REALTIME TOAST NOTIFICATIONS
-        const randomToasts = [
-            "Người chơi ID 2938**** vừa nạp 10.000 KC (Viettel 100k - Nạp X5)",
-            "Người chơi ID 8831**** vừa nhận 9.999 KC từ Vòng Quay!",
-            "Người chơi ID 7741**** vừa nạp 1.000 KC (Mobi 20k - Nạp X5)",
-            "Người chơi ID 5521**** vừa nạp 20.000 KC (Momo QR - Nạp X5)",
-            "Người chơi ID 1092**** vừa trúng Thẻ 100k Vòng Quay!"
-        ];
-
-        function triggerRealtimeToast() {
-            const container = document.getElementById('toast-container');
-            const randomMsg = randomToasts[Math.floor(Math.random() * randomToasts.length)];
-            
-            const toast = document.createElement('div');
-            toast.className = "toast-enter glass-card border border-ffGold/40 p-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs pointer-events-auto bg-black/90";
-            toast.innerHTML = `
-                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-ffOrange to-ffGold flex items-center justify-center text-black font-black shrink-0">
-                    <i class="fa-solid fa-gem"></i>
-                </div>
-                <div>
-                    <p class="font-bold text-white">${randomMsg}</p>
-                    <span class="text-[9px] text-gray-400">Vừa xong • Tự động X5</span>
-                </div>
-            `;
-
-            container.appendChild(toast);
-
-            setTimeout(() => {
-                toast.classList.remove('toast-enter');
-                toast.classList.add('toast-exit');
-                setTimeout(() => toast.remove(), 500);
-            }, 4000);
-        }
-
-        // Populate Live Feed Side List
-        function populateLiveFeed() {
-            const feedList = document.getElementById('live-feed-list');
-            feedList.innerHTML = '';
-            for(let i=0; i<4; i++) {
-                const msg = randomToasts[i];
-                feedList.innerHTML += `
-                    <div class="p-2 rounded-xl bg-black/40 border border-gray-800 flex items-center justify-between">
-                        <span class="text-gray-300 font-medium truncate">${msg}</span>
-                        <span class="text-[9px] text-emerald-400 font-bold shrink-0 ml-2">✓ Nạp X5</span>
-                    </div>
-                `;
-            }
-        }
-
-        // CANVAS WHEEL GAME LOGIC
-        const canvas = document.getElementById('wheelCanvas');
-        const ctx = canvas.getContext('2d');
-        const prizes = [
-            { label: '9.999 KC', color: '#FF5500' },
-            { label: '100 KC', color: '#121826' },
-            { label: '500 KC', color: '#FFB800' },
-            { label: 'Chúc May Mắn', color: '#1a2234' },
-            { label: '1.000 KC', color: '#E60000' },
-            { label: 'Thẻ 100K', color: '#121826' },
-            { label: '200 KC', color: '#FFB800' },
-            { label: 'Mất Lượt', color: '#1a2234' }
-        ];
-
-        let currentAngle = 0;
-        let isSpinning = false;
-
-        function drawWheel() {
-            const numSlices = prizes.length;
-            const sliceAngle = (2 * Math.PI) / numSlices;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < numSlices; i++) {
-                const angle = currentAngle + i * sliceAngle;
-
-                // Slice sector
-                ctx.beginPath();
-                ctx.fillStyle = prizes[i].color;
-                ctx.moveTo(200, 200);
-                ctx.arc(200, 200, 190, angle, angle + sliceAngle);
-                ctx.lineTo(200, 200);
-                ctx.fill();
-
-                ctx.strokeStyle = 'rgba(255, 184, 0, 0.4)';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-
-                // Slice Text
-                ctx.save();
-                ctx.translate(200, 200);
-                ctx.rotate(angle + sliceAngle / 2);
-                ctx.textAlign = 'right';
-                ctx.fillStyle = '#FFFFFF';
-                ctx.font = 'bold 14px Orbitron';
-                ctx.fillText(prizes[i].label, 170, 5);
-                ctx.restore();
-            }
-        }
-
-        function spinWheel() {
-            if (isSpinning) return;
-            if (userSpins <= 0) {
-                alertMessage("Bạn đã hết lượt quay! Hãy nạp thêm Kim Cương để nhận thêm lượt quay may mắn!");
-                return;
-            }
-
-            userSpins--;
-            document.getElementById('user-spins-count').innerText = userSpins;
-            isSpinning = true;
-
-            const spinRounds = 5 + Math.floor(Math.random() * 5);
-            const randomPrizeIndex = Math.floor(Math.random() * prizes.length);
-            const sliceAngle = (2 * Math.PI) / prizes.length;
-            
-            // Calculate target angle to align pointer at top
-            const targetAngle = (2 * Math.PI * spinRounds) + (prizes.length - randomPrizeIndex) * sliceAngle - (Math.PI / 2);
-            let start = null;
-            const duration = 4000;
-
-            function animateSpin(timestamp) {
-                if (!start) start = timestamp;
-                const progress = timestamp - start;
-                const easeOut = 1 - Math.pow(1 - progress / duration, 3);
-                currentAngle = easeOut * targetAngle;
-
-                drawWheel();
-
-                if (progress < duration) {
-                    requestAnimationFrame(animateSpin);
-                } else {
-                    isSpinning = false;
-                    const wonPrize = prizes[randomPrizeIndex].label;
-                    confetti({ particleCount: 120, spread: 80, origin: { y: 0.5 } });
-                    alertMessage(`CHÚC MỪNG! Bạn đã quay trúng: ${wonPrize}! Phần thưởng đã được gửi vào tài khoản!`);
-                }
-            }
-
-            requestAnimationFrame(animateSpin);
-        }
-
-        // INIT ON WINDOW LOAD
-        window.onload = function () {
-            renderHistory();
-            populateLiveFeed();
-            drawWheel();
-
-            // Trigger random live toast every 8 seconds
-            setInterval(triggerRealtimeToast, 8000);
-        };
-    </script>
 </body>
 </html>
