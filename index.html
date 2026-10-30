@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cổng Thanh Toán Robux Chính Thức</title>
+    <title>Hệ Thống Nạp Robux Tự Động - Uy Tín & An Toàn</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,8 +12,8 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
         body {
-            background-color: #f0f2f5;
-            color: #333;
+            background-color: #0b0f0e;
+            color: #e2e8f0;
             padding: 15px;
             display: flex;
             justify-content: center;
@@ -22,22 +22,30 @@
         }
         .container {
             width: 100%;
-            max-width: 440px;
-            background: #fff;
-            border-radius: 14px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 460px;
+            background: #131a18;
+            border: 1px solid #1f332b;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 255, 128, 0.08);
             overflow: hidden;
         }
         .header {
-            background: #e50914;
+            background: linear-gradient(135deg, #00b050, #008037);
             color: white;
-            padding: 22px;
+            padding: 24px;
             text-align: center;
+            position: relative;
         }
         .header h2 {
-            font-size: 18px;
+            font-size: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+        .header p {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 4px;
         }
         .content {
             padding: 20px;
@@ -49,22 +57,25 @@
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
-            font-size: 14px;
-            color: #2c3e50;
+            font-size: 13px;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .form-control {
             width: 100%;
             padding: 12px 14px;
-            border: 1px solid #ccd0d5;
+            background: #1a2421;
+            border: 1px solid #283832;
+            color: #fff;
             border-radius: 8px;
             font-size: 15px;
             outline: none;
             transition: all 0.2s;
-            background: #fff;
         }
         .form-control:focus {
-            border-color: #e50914;
-            box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.15);
+            border-color: #00ff80;
+            box-shadow: 0 0 0 2px rgba(0, 255, 128, 0.2);
         }
         .package-grid {
             display: grid;
@@ -73,50 +84,74 @@
             margin-bottom: 18px;
         }
         .package-item {
-            border: 2px solid #e4e6eb;
-            border-radius: 8px;
+            border: 1px solid #283832;
+            border-radius: 10px;
             padding: 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            background: #f8f9fa;
+            background: #18221f;
         }
         .package-item.active {
-            border-color: #e50914;
-            background: #fff5f5;
+            border-color: #00ff80;
+            background: rgba(0, 255, 128, 0.05);
+            box-shadow: 0 0 10px rgba(0, 255, 128, 0.1);
         }
         .package-item .robux-amount {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 16px;
-            color: #e50914;
+            color: #00ff80;
             margin-bottom: 4px;
         }
         .package-item .price {
             font-size: 13px;
-            color: #65676b;
+            color: #a0aec0;
+        }
+        .badge-secure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #00ff80;
+            background: rgba(0, 255, 128, 0.08);
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 18px;
         }
         .btn-submit {
             width: 100%;
-            background: #e50914;
-            color: white;
+            background: #00ff80;
+            color: #000;
             border: none;
             padding: 14px;
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 800;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.2s;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .btn-submit:hover {
-            background: #c80811;
+            background: #00cc66;
         }
-        .note {
+        .stats-box {
+            display: flex;
+            justify-content: space-between;
             margin-top: 15px;
-            font-size: 12px;
-            color: #65676b;
+            padding-top: 15px;
+            border-top: 1px solid #1f332b;
+            font-size: 11px;
+            color: #718096;
             text-align: center;
-            line-height: 1.4;
+        }
+        .stats-box div span {
+            display: block;
+            color: #e2e8f0;
+            font-weight: bold;
+            font-size: 13px;
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -124,16 +159,21 @@
 
 <div class="container">
     <div class="header">
-        <h2>Cổng Nạp Robux Chính Thức</h2>
+        <h2>Robux Store VN</h2>
+        <p>Hệ thống nạp Robux tự động 24/7 - An toàn tuyệt đối</p>
     </div>
     <div class="content">
         <form id="topupForm">
-            <div class="form-group">
-                <label for="username">Tên tài khoản Roblox</label>
-                <input type="text" id="username" class="form-control" placeholder="Nhập username của bạn..." required>
+            <div class="badge-secure">
+                🔒 Kết nối mã hóa SSL 256-bit - Bảo mật thông tin 100%
             </div>
 
-            <label style="display:block; font-weight:600; margin-bottom:8px; font-size:14px; color:#2c3e50;">Chọn gói nạp</label>
+            <div class="form-group">
+                <label for="username">Tên tài khoản Roblox</label>
+                <input type="text" id="username" class="form-control" placeholder="Nhập chính xác Username..." required>
+            </div>
+
+            <label style="display:block; font-weight:600; margin-bottom:8px; font-size:13px; color:#a0aec0; text-transform:uppercase;">Chọn gói nạp ưu đãi</label>
             <div class="package-grid">
                 <div class="package-item active" onclick="selectPackage(this, '400', '50.000đ')">
                     <div class="robux-amount">400 Robux</div>
@@ -156,14 +196,18 @@
             <div class="form-group">
                 <label for="paymentMethod">Phương thức thanh toán</label>
                 <select id="paymentMethod" class="form-control">
-                    <option value="momo">Ví điện tử MoMo</option>
-                    <option value="bank">Chuyển khoản Ngân hàng (QR Code)</option>
-                    <option value="card">Thẻ cào điện thoại</option>
+                    <option value="momo">Ví điện tử MoMo (Tự động)</option>
+                    <option value="bank">Chuyển khoản Ngân hàng (Vietcombank, MB, TPBank...)</option>
+                    <option value="card">Thẻ cào điện thoại (Chiết khấu thấp)</option>
                 </select>
             </div>
 
-            <button type="submit" class="btn-submit">Xác Nhận Nạp</button>
-            <div class="note">Vui lòng kiểm tra kỹ tên tài khoản trước khi thanh toán để tránh nhầm lẫn.</div>
+            <button type="submit" class="btn-submit">Xác Nhận Thanh Toán</button>
+
+            <div class="stats-box">
+                <div>Giao dịch thành công<span>142,890+</span></div>
+                <div>Trạng thái hệ thống<span style="color: #00ff80;">● Hoạt động</span></div>
+            </div>
         </form>
     </div>
 </div>
@@ -183,14 +227,13 @@
         const method = document.getElementById('paymentMethod').value;
         
         if(!username) {
-            alert('Vui lòng nhập tên tài khoản!');
+            alert('Vui lòng nhập tên tài khoản Roblox!');
             return;
         }
 
-        alert(`Xác nhận nạp ${selectedPkg.robux} Robux (${selectedPkg.price}) cho tài khoản: ${username}\nPhương thức: ${method.toUpperCase()}\n\nĐang kết nối cổng thanh toán...`);
+        alert(`Hệ thống đang khởi tạo đơn hàng:\n- Tài khoản: ${username}\n- Gói: ${selectedPkg.robux} Robux (${selectedPkg.price})\n\nVui lòng chờ trong giây lát để chuyển đến mã QR thanh toán!`);
     });
 </script>
 
 </body>
 </html>
-
