@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROBUXLAUVN - Hệ Thống Nạp Robux Uy Tín</title>
+    <title>ROBUXLAU - Hệ Thống Nạp Robux Uy Tín</title>
     <style>
         * {
             box-sizing: border-box;
@@ -135,7 +135,6 @@
         .btn-submit:hover {
             background: #00cc66;
         }
-        /* Khu vực hiển thị QR Code thanh toán */
         #qrSection {
             display: none;
             text-align: center;
@@ -199,7 +198,6 @@
         <p>Hệ thống nạp Robux tự động 24/7 - An toàn tuyệt đối</p>
     </div>
     <div class="content">
-        <!-- Form nhập thông tin -->
         <form id="topupForm">
             <div class="badge-secure">
                 🔒 Kết nối mã hóa SSL 256-bit - Bảo mật 100%
@@ -241,7 +239,6 @@
             <button type="submit" class="btn-submit">Tạo Mã Thanh Toán</button>
         </form>
 
-        <!-- Phần hiển thị QR Code sau khi bấm xác nhận -->
         <div id="qrSection">
             <div class="order-info">
                 <p>Tài khoản: <span id="outUser"></span></p>
@@ -251,8 +248,8 @@
             
             <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">Quét mã QR bên dưới để thanh toán:</p>
             <div class="qr-box">
-                <!-- Sử dụng hình ảnh QR bạn cung cấp[span_0](start_span)[span_0](end_span) -->
-                <img src="data:image/jpeg;base64,..." alt="QR Thanh Toan" id="qrImage">
+                <!-- Gắn trực tiếp ảnh QR của bạn vào đây -->
+                <img src="https://i.ibb.co/h7n1sL3/qr-momovy.jpg" alt="QR MoMo Tran The Vy" id="qrImage">
                 <p style="color: #000; font-weight: bold; font-size: 12px; margin-top: 5px;">TRAN THE VY</p>
             </div>
             
@@ -270,9 +267,6 @@
         selectedPkg = { robux, price };
     }
 
-    // Đính kèm trực tiếp link ảnh QR của bạn vào đây để web hiển thị đúng
-    const myQrUrl = "https://i.imgur.com/8W4gB7e.jpeg"; // Bạn có thể thay link ảnh QR tải lên của bạn vào đây
-
     document.getElementById('topupForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const username = document.getElementById('username').value.trim();
@@ -282,16 +276,10 @@
             return;
         }
 
-        // Hiển thị thông tin lên giao diện QR
         document.getElementById('outUser').innerText = username;
         document.getElementById('outPackage').innerText = selectedPkg.robux + ' Robux';
         document.getElementById('outPrice').innerText = selectedPkg.price;
-        
-        // Gán nguồn ảnh QR (bạn có thể thay link ảnh gốc của bạn vào biến myQrUrl ở trên)
-        // Hoặc tạm thời dùng ảnh trực tiếp từ thiết bị của bạn:
-        document.getElementById('qrImage').src = "https://i.ibb.co/68v8L5K/qr-momo.jpg"; // Hoặc link ảnh của bạn
 
-        // Ẩn form nhập, hiện khung QR
         document.getElementById('topupForm').style.display = 'none';
         document.getElementById('qrSection').style.display = 'block';
     });
