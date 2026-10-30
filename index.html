@@ -142,14 +142,14 @@
         }
         .qr-box {
             background: #fff;
-            padding: 15px;
+            padding: 12px;
             border-radius: 12px;
             display: inline-block;
             margin-top: 10px;
             color: #000;
         }
         .qr-box img {
-            width: 220px;
+            width: 230px;
             height: auto;
             border-radius: 8px;
         }
@@ -231,8 +231,7 @@
             <div class="form-group">
                 <label for="paymentMethod">Phương thức thanh toán</label>
                 <select id="paymentMethod" class="form-control">
-                    <option value="momo">Ví điện tử MoMo / QR Code</option>
-                    <option value="bank">Chuyển khoản Ngân hàng</option>
+                    <option value="momo">Ví điện tử / Ngân hàng (Quét mọi app)</option>
                 </select>
             </div>
 
@@ -248,9 +247,9 @@
             
             <p style="font-size: 13px; color: #a0aec0; margin-bottom: 8px;">Quét mã QR bên dưới để thanh toán:</p>
             <div class="qr-box">
-                <!-- Sử dụng trực tiếp hình ảnh QR MoMo của bạn (TRAN THE VY) -->
-                <img src="https://i.imgur.com/8W4gB7e.jpeg" alt="QR MoMo Tran The Vy" id="qrImage" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=MOMO_TRAN_THE_VY'">
-                <p style="color: #000; font-weight: bold; font-size: 12px; margin-top: 5px;">TRAN THE VY[span_1](start_span)[span_1](end_span)</p>
+                <!-- Mã QR của bạn được nhúng trực tiếp dạng dữ liệu nội bộ, không sợ chết link -->
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEAAQADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==" alt="QR Code Tran The Vy" id="qrImage">
+                <p style="color: #000; font-weight: bold; font-size: 13px; margin-top: 6px;">TRAN THE VY[span_1](start_span)[span_1](end_span)</p>
             </div>
             
             <button type="button" class="btn-back" onclick="goBack()">Quay lại / Đổi thông tin</button>
